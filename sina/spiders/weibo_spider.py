@@ -244,7 +244,9 @@ class WeiboSpider(Spider):
             comment_item['weibo_url'] = response.meta['weibo_url']
             comment_item['comment_user_id'] = re.search(r'/u/(\d+)', comment_user_url).group(1)
             comment_item['content'] = comment_node.xpath('.//span[@class="ctt"]').xpath('string(.)').extract_first()
-            like_num = comment_node.xpath('.//a[contains(text(),"赞[")]/text()')[-1]
+            # like_num = comment_node.xpath('.//a[contains(text(),"赞[")]/text()')[-1]
+            like_num = comment_node.xpath('.//span[@class="cc"]').xpath('string(.)').extract_first()
+            print(like_num)
             comment_item['like_num'] = int(re.search('\d+', like_num).group())
             # comment_item['like_num'] = int(re.search('\d+', like_num).group())
             comment_item['_id'] = comment_node.xpath('./@id').extract_first()
