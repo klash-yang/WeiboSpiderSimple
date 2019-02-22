@@ -50,6 +50,7 @@ class CommentItem(Item):
     """
     _id = Field()
     comment_user_id = Field()  # 评论用户的id
+    nick_name = Field()  # 评论用户的昵称
     content = Field()  # 评论的内容
     like_num = Field()  # 点赞数
     weibo_url = Field()  # 评论的微博的url

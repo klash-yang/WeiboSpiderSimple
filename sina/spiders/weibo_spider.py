@@ -18,7 +18,8 @@ class WeiboSpider(Spider):
 
     def start_requests(self):
         start_uids = [
-            '3176010690'
+            # '3176010690'    #孙狗
+            '1748526937'    #我自己
             # '2803301701',  # 人民日报
             # '1699432410'  # 新华社
         ]
@@ -243,12 +244,10 @@ class WeiboSpider(Spider):
             comment_item['crawl_time'] = int(time.time())
             comment_item['weibo_url'] = response.meta['weibo_url']
             comment_item['comment_user_id'] = re.search(r'/u/(\d+)', comment_user_url).group(1)
+            comment_item['nick_name'] = comment_node.xpath('.//a[contains(@href,"/u/")]').xpath('string(.)').extract_first()
             comment_item['content'] = comment_node.xpath('.//span[@class="ctt"]').xpath('string(.)').extract_first()
-            # like_num = comment_node.xpath('.//a[contains(text(),"赞[")]/text()')[-1]
             like_num = comment_node.xpath('.//span[@class="cc"]').xpath('string(.)').extract_first()
-            print(like_num)
             comment_item['like_num'] = int(re.search('\d+', like_num).group())
-            # comment_item['like_num'] = int(re.search('\d+', like_num).group())
             comment_item['_id'] = comment_node.xpath('./@id').extract_first()
             created_at = comment_node.xpath('.//span[@class="ct"]/text()').extract_first()
             comment_item['created_at'] = time_fix(created_at.split('\xa0')[0])
