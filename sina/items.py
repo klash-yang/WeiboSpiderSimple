@@ -5,6 +5,8 @@ from scrapy import Item, Field
 class TweetsItem(Item):
     """ 微博信息 """
     _id = Field()  # 微博id
+    dataset_id = Field()  # dataset id
+    blogger_id = Field()  # 博主id
     weibo_url = Field()  # 微博URL
     created_at = Field()  # 微博发表时间
     like_num = Field()  # 点赞数
@@ -18,6 +20,8 @@ class TweetsItem(Item):
 class InformationItem(Item):
     """ 个人信息 """
     _id = Field()  # 用户ID
+    dataset_id = Field()  # dataset id
+    blogger_id = Field()  # 博主id
     nick_name = Field()  # 昵称
     gender = Field()  # 性别
     province = Field()  # 所在省
@@ -39,6 +43,8 @@ class InformationItem(Item):
 class RelationshipsItem(Item):
     """ 用户关系，只保留与关注的关系 """
     _id = Field()
+    dataset_id = Field()  # dataset id
+    blogger_id = Field()  # 博主id
     fan_id = Field()  # 关注者,即粉丝的id
     followed_id = Field()  # 被关注者的id
     crawl_time = Field()  # 抓取时间戳
@@ -49,6 +55,8 @@ class CommentItem(Item):
     微博评论信息
     """
     _id = Field()
+    dataset_id = Field()  # dataset id
+    blogger_id = Field()  # 博主id
     comment_user_id = Field()  # 评论用户的id
     nick_name = Field()  # 评论用户的昵称
     content = Field()  # 评论的内容

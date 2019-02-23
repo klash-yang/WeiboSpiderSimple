@@ -3,3 +3,4 @@ Scrapy==1.5.1
 pymongo==3.5.1
 Pillow==5.2.0
 lxml==4.2.5
+PyMySQL
