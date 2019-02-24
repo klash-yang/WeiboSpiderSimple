@@ -17,7 +17,7 @@ class WeiboSpider(Spider):
     name = "weibo_spider"
     base_url = "https://weibo.cn"
     blogger_id = ""
-    dataset_id = uuid.uuid1()
+    dataset_id = str(uuid.uuid1())
     create_dataset = CreateDataset(dataset_id=dataset_id)
 
     def start_requests(self):
