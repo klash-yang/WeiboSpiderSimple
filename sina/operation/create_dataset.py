@@ -29,6 +29,6 @@ class CreateDataset:
         print('Insert ' + str(effect_row) + ' rows')
         self.close_mysql(cursor, conn)
 
-# a = CreateDataset()
-# a.execute("99999")
+# a = CreateDataset("99999")
+# a.execute()
 

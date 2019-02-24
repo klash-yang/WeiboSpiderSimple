@@ -2,15 +2,10 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="fec412e2-aba5-4dea-8906-f4cb6b8d07f0" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/.idea/dataSources.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/sqldialects.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/sina/operation/__init__.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/sina/operation/create_dataset.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/sina/operation/wordpress_post.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/sina/rec/weibo_spider_old.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/sina/operation/mongo_to_mysql.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/requirements.txt" beforeDir="false" afterPath="$PROJECT_DIR$/requirements.txt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/sina/items.py" beforeDir="false" afterPath="$PROJECT_DIR$/sina/items.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/sina/operation/create_dataset.py" beforeDir="false" afterPath="$PROJECT_DIR$/sina/operation/create_dataset.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/sina/rec/weibo_spider_old.py" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/sina/spiders/weibo_spider.py" beforeDir="false" afterPath="$PROJECT_DIR$/sina/spiders/weibo_spider.py" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
@@ -20,9 +15,9 @@
     <option name="LAST_RESOLUTION" value="IGNORE" />
   </component>
   <component name="CoverageDataManager">
-    <SUITE FILE_PATH="coverage/WeiboSpider$create_dataset.coverage" NAME="create_dataset Coverage Results" MODIFIED="1550937917325" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/sina/operation" />
+    <SUITE FILE_PATH="coverage/WeiboSpider$create_dataset.coverage" NAME="create_dataset Coverage Results" MODIFIED="1550942239219" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/sina/operation" />
     <SUITE FILE_PATH="coverage/WeiboSpider$wordpress_post__1_.coverage" NAME="wordpress_post (1) Coverage Results" MODIFIED="1550938666749" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/sina/operation" />
-    <SUITE FILE_PATH="coverage/WeiboSpider$weibo_spider.coverage" NAME="weibo_spider Coverage Results" MODIFIED="1550941490826" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/sina/spiders" />
+    <SUITE FILE_PATH="coverage/WeiboSpider$weibo_spider.coverage" NAME="weibo_spider Coverage Results" MODIFIED="1550942321201" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/sina/spiders" />
     <SUITE FILE_PATH="coverage/WeiboSpider$wordpress_post.coverage" NAME="wordpress_post Coverage Results" MODIFIED="1550910252944" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/sina/spiders" />
   </component>
   <component name="DatabaseView">
@@ -91,7 +86,7 @@
           <file pinned="false" current-in-tab="true">
             <entry file="file://$PROJECT_DIR$/sina/items.py">
               <provider selected="true" editor-type-id="text-editor">
-                <state relative-caret-position="440">
+                <state relative-caret-position="470">
                   <caret line="58" column="32" selection-start-line="58" selection-start-column="32" selection-end-line="58" selection-end-column="32" />
                 </state>
               </provider>
@@ -100,8 +95,8 @@
           <file pinned="false" current-in-tab="false">
             <entry file="file://$PROJECT_DIR$/sina/operation/create_dataset.py">
               <provider selected="true" editor-type-id="text-editor">
-                <state relative-caret-position="480">
-                  <caret line="24" column="31" lean-forward="true" selection-start-line="24" selection-start-column="31" selection-end-line="24" selection-end-column="31" />
+                <state relative-caret-position="680">
+                  <caret line="34" lean-forward="true" selection-start-line="34" selection-end-line="34" />
                 </state>
               </provider>
             </entry>
@@ -110,7 +105,7 @@
             <entry file="file://$PROJECT_DIR$/requirements.txt">
               <provider selected="true" editor-type-id="text-editor">
                 <state relative-caret-position="100">
-                  <caret line="5" column="7" lean-forward="true" selection-start-line="5" selection-start-column="7" selection-end-line="5" selection-end-column="7" />
+                  <caret line="5" column="7" selection-start-line="5" selection-start-column="7" selection-end-line="5" selection-end-column="7" />
                 </state>
               </provider>
             </entry>
@@ -127,12 +122,12 @@
         </leaf>
       </split-first>
       <split-second>
-        <leaf>
+        <leaf SIDE_TABS_SIZE_LIMIT_KEY="375">
           <file pinned="false" current-in-tab="true">
             <entry file="file://$PROJECT_DIR$/sina/spiders/weibo_spider.py">
               <provider selected="true" editor-type-id="text-editor">
-                <state relative-caret-position="300">
-                  <caret line="38" column="36" selection-start-line="38" selection-start-column="26" selection-end-line="38" selection-end-column="36" />
+                <state relative-caret-position="200">
+                  <caret line="21" selection-start-line="21" selection-end-line="21" />
                 </state>
               </provider>
             </entry>
@@ -140,8 +135,8 @@
           <file pinned="false" current-in-tab="false">
             <entry file="file://$PROJECT_DIR$/sina/pipelines.py">
               <provider selected="true" editor-type-id="text-editor">
-                <state relative-caret-position="520">
-                  <caret line="29" column="37" lean-forward="true" selection-start-line="29" selection-start-column="37" selection-end-line="29" selection-end-column="37" />
+                <state relative-caret-position="480">
+                  <caret line="27" selection-start-line="27" selection-end-line="27" />
                 </state>
               </provider>
             </entry>
@@ -184,6 +179,7 @@
       <find>InformationItem</find>
       <find>RelationshipsItem</find>
       <find>blogger_id</find>
+      <find>execute</find>
     </findStrings>
   </component>
   <component name="Git.Settings">
@@ -198,9 +194,9 @@
         <option value="$PROJECT_DIR$/sina/spiders/wordpress_post.py" />
         <option value="$APPLICATION_CONFIG_DIR$/consoles/db/87773894-fb30-4500-aff6-2f298bcf7d77/console.sql" />
         <option value="$PROJECT_DIR$/sina/operation/wordpress_post.py" />
-        <option value="$PROJECT_DIR$/sina/operation/create_dataset.py" />
-        <option value="$PROJECT_DIR$/sina/spiders/weibo_spider.py" />
         <option value="$PROJECT_DIR$/sina/items.py" />
+        <option value="$PROJECT_DIR$/sina/spiders/weibo_spider.py" />
+        <option value="$PROJECT_DIR$/sina/operation/create_dataset.py" />
       </list>
     </option>
   </component>
@@ -228,12 +224,6 @@
               <item name="WeiboSpider" type="b2602c69:ProjectViewProjectNode" />
               <item name="WeiboSpider" type="462c0819:PsiDirectoryNode" />
               <item name="sina" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="WeiboSpider" type="b2602c69:ProjectViewProjectNode" />
-              <item name="WeiboSpider" type="462c0819:PsiDirectoryNode" />
-              <item name="sina" type="462c0819:PsiDirectoryNode" />
-              <item name="rec" type="462c0819:PsiDirectoryNode" />
             </path>
           </expand>
           <select />
@@ -271,7 +261,7 @@
       </list>
     </option>
   </component>
-  <component name="RunManager" selected="Python.weibo_spider">
+  <component name="RunManager" selected="Python.create_dataset">
     <configuration name="create_dataset" type="PythonConfigurationType" factoryName="Python" temporary="true">
       <module name="WeiboSpider" />
       <option name="INTERPRETER_OPTIONS" value="" />
@@ -363,8 +353,8 @@
     <recent_temporary>
       <list>
         <item itemvalue="Python.weibo_spider" />
-        <item itemvalue="Python.wordpress_post (1)" />
         <item itemvalue="Python.create_dataset" />
+        <item itemvalue="Python.wordpress_post (1)" />
         <item itemvalue="Python.wordpress_post" />
       </list>
     </recent_temporary>
@@ -382,46 +372,58 @@
       <workItem from="1550767255107" duration="388000" />
       <workItem from="1550767654254" duration="3261000" />
       <workItem from="1550848928081" duration="1126000" />
-      <workItem from="1550892717684" duration="21037000" />
+      <workItem from="1550892717684" duration="21858000" />
+      <workItem from="1550980476705" duration="627000" />
     </task>
+    <task id="LOCAL-00001" summary="Add Column">
+      <created>1550941611168</created>
+      <option name="number" value="00001" />
+      <option name="presentableId" value="LOCAL-00001" />
+      <option name="project" value="LOCAL" />
+      <updated>1550941611168</updated>
+    </task>
+    <option name="localTasksCounter" value="2" />
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="25812000" />
+    <option name="totallyTimeSpent" value="27260000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="207" y="0" width="2360" height="1407" extended-state="0" />
-    <editor active="true" />
     <layout>
-      <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.110480346" />
+      <window_info content_ui="combo" id="Project" order="0" visible="true" weight="0.11004367" />
       <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
       <window_info id="Favorites" order="2" side_tool="true" />
-      <window_info anchor="bottom" id="Messages" />
       <window_info anchor="bottom" id="Message" order="0" />
       <window_info anchor="bottom" id="Find" order="1" weight="0.32952693" />
-      <window_info anchor="bottom" id="Run" order="2" weight="0.32707992" />
-      <window_info anchor="bottom" id="Debug" order="3" visible="true" weight="0.3980424" />
+      <window_info anchor="bottom" id="Run" order="2" weight="0.32626426" />
+      <window_info anchor="bottom" id="Debug" order="3" weight="0.3980424" />
       <window_info anchor="bottom" id="Cvs" order="4" weight="0.25" />
       <window_info anchor="bottom" id="Inspection" order="5" weight="0.4" />
       <window_info anchor="bottom" id="TODO" order="6" />
       <window_info anchor="bottom" id="Docker" order="7" show_stripe_button="false" />
-      <window_info anchor="bottom" id="Version Control" order="8" weight="0.32626426" />
+      <window_info active="true" anchor="bottom" id="Version Control" order="8" visible="true" weight="0.32626426" />
       <window_info anchor="bottom" id="Database Changes" order="9" />
       <window_info anchor="bottom" id="Terminal" order="10" weight="0.3711256" />
       <window_info anchor="bottom" id="Event Log" order="11" side_tool="true" />
       <window_info anchor="bottom" id="Python Console" order="12" weight="0.32952693" />
       <window_info anchor="bottom" id="Database Console" order="13" weight="0.43637848" />
+      <window_info anchor="bottom" id="Messages" order="14" />
       <window_info anchor="right" id="Commander" internal_type="SLIDING" order="0" type="SLIDING" weight="0.4" />
       <window_info anchor="right" id="Ant Build" order="1" weight="0.25" />
       <window_info anchor="right" content_ui="combo" id="Hierarchy" order="2" weight="0.25" />
       <window_info anchor="right" id="Json Parser" order="3" />
       <window_info anchor="right" id="SciView" order="4" />
-      <window_info anchor="right" id="Mongo Explorer" order="5" visible="true" weight="0.19868995" />
-      <window_info anchor="right" id="Database" order="6" weight="0.16462882" />
+      <window_info anchor="right" id="Mongo Explorer" order="5" weight="0.19868995" />
+      <window_info anchor="right" id="Database" order="6" visible="true" weight="0.16462882" />
     </layout>
   </component>
   <component name="TypeScriptGeneratedFilesManager">
     <option name="version" value="1" />
+  </component>
+  <component name="VcsManagerConfiguration">
+    <MESSAGE value="Add Column" />
+    <option name="LAST_COMMIT_MESSAGE" value="Add Column" />
   </component>
   <component name="editorHistoryManager">
     <entry file="file://$PROJECT_DIR$/data_stracture.md">
@@ -478,38 +480,10 @@
         </state>
       </provider>
     </entry>
-    <entry file="das://cc6ff9a0-e006-4d05-8628-a99de2eef333/schema/chouxiang/table/cx_posts">
-      <provider selected="true" editor-type-id="com.intellij.database.editor.DatabaseTableFileEditorProvider">
-        <state>
-          <filtering enabled="true" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/requirements.txt">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="100">
-          <caret line="5" column="7" lean-forward="true" selection-start-line="5" selection-start-column="7" selection-end-line="5" selection-end-column="7" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/sina/operation/create_dataset.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="480">
-          <caret line="24" column="31" lean-forward="true" selection-start-line="24" selection-start-column="31" selection-end-line="24" selection-end-column="31" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/env/Lib/site-packages/pymongo/collection.py">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="533">
           <caret line="2655" selection-start-line="2655" selection-end-line="2655" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="das://87773894-fb30-4500-aff6-2f298bcf7d77/schema/scrapinfo/table/scrap_info">
-      <provider selected="true" editor-type-id="com.intellij.database.editor.DatabaseTableFileEditorProvider">
-        <state>
-          <filtering enabled="true" />
         </state>
       </provider>
     </entry>
@@ -523,17 +497,18 @@
     <entry file="file://$PROJECT_DIR$/sina/operation/__init__.py">
       <provider selected="true" editor-type-id="text-editor" />
     </entry>
-    <entry file="file://$PROJECT_DIR$/sina/pipelines.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="520">
-          <caret line="29" column="37" lean-forward="true" selection-start-line="29" selection-start-column="37" selection-end-line="29" selection-end-column="37" />
+    <entry file="file://$PROJECT_DIR$/sina/rec/weibo_spider_old.py" />
+    <entry file="das://cc6ff9a0-e006-4d05-8628-a99de2eef333/schema/chouxiang/table/cx_posts">
+      <provider selected="true" editor-type-id="com.intellij.database.editor.DatabaseTableFileEditorProvider">
+        <state>
+          <filtering enabled="true" />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/sina/rec/weibo_spider_old.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="300">
-          <caret line="26" column="31" lean-forward="true" selection-end-line="276" />
+    <entry file="das://87773894-fb30-4500-aff6-2f298bcf7d77/schema/scrapinfo/table/scrap_info">
+      <provider selected="true" editor-type-id="com.intellij.database.editor.DatabaseTableFileEditorProvider">
+        <state>
+          <filtering enabled="true" />
         </state>
       </provider>
     </entry>
@@ -547,16 +522,37 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/sina/pipelines.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="480">
+          <caret line="27" selection-start-line="27" selection-end-line="27" />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/sina/spiders/weibo_spider.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="300">
-          <caret line="38" column="36" selection-start-line="38" selection-start-column="26" selection-end-line="38" selection-end-column="36" />
+        <state relative-caret-position="200">
+          <caret line="21" selection-start-line="21" selection-end-line="21" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/requirements.txt">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="100">
+          <caret line="5" column="7" selection-start-line="5" selection-start-column="7" selection-end-line="5" selection-end-column="7" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/sina/operation/create_dataset.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="680">
+          <caret line="34" lean-forward="true" selection-start-line="34" selection-end-line="34" />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/sina/items.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="440">
+        <state relative-caret-position="470">
           <caret line="58" column="32" selection-start-line="58" selection-start-column="32" selection-end-line="58" selection-end-column="32" />
         </state>
       </provider>
