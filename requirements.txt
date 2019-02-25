@@ -6,3 +6,4 @@ lxml==4.2.5
 PyMySQL
 pymongo
 pywin32
+wordpress_xmlrpc
