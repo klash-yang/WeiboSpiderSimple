@@ -13,7 +13,7 @@ class CreateDataset:
         return conn
 
     def sentence(self):
-        sql = "INSERT INTO scrap_info(id, dataset_id, create_time) VALUES (UUID(), '%s', now())" % (str(self.dataset_id))
+        sql = "INSERT INTO scrapinfo.scrap_info(id, dataset_id, create_time) VALUES (UUID(), '%s', now())" % (str(self.dataset_id))
         return sql
 
     def close_mysql(self, cursor, conn):
