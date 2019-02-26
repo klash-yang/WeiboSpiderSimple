@@ -4,3 +4,7 @@ workspace.xml
 env
 venv
 .idea
+/.idea/misc.xml
+/.idea/codeStyles/Project.xml
+/.idea/WeiboSpider.iml
+/.idea/workspace.xml
