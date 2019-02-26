@@ -6,12 +6,13 @@ import csv
 from sina.settings import WORDPRESS_ADDRESS
 
 
-def post_wordpress(title, content, post_status, post_tags, categories):
+def post_wordpress(title, content, post_status, comment_status, post_tags, categories):
     wp = Client(WORDPRESS_ADDRESS + 'xmlrpc.php', 'poloyc', 'Suckerlove5')
     post = WordPressPost()
     post.title = title
     post.content = content
     post.post_status = post_status
+    post.comment_status = comment_status
     post.terms_names = {
         # 'post_tag': ['test', 'firstpost'],
         # 'category': ['Introductions', 'Tests']
@@ -19,7 +20,6 @@ def post_wordpress(title, content, post_status, post_tags, categories):
         'category': categories
     }
     wp.call(NewPost(post))
-
 
 # post_wordpress('Test title', 'Test Content', 'publish', ['test'], ['Introductions'])
 

@@ -20,22 +20,20 @@ def transfer_to_mysql():
         blogger_info = db['Information'].find({"dataset_id": latest_dataset_id, "blogger_id": blogger_id})[0]
         comments = db['Comments'].find({"dataset_id": latest_dataset_id, "weibo_url": tweet_url})
         title = tweet['content']
-        content_list = []
-        content_list.append('<!-- wp:paragraph -->\n')
-        content_list.append('<p>评论:</p>\n')
-        content_list.append('<!-- /wp:paragraph -->\n\n')
+        content_list = ['<!-- wp:paragraph -->\n', '<p>评论:</p>\n', '<!-- /wp:paragraph -->\n\n']
         for comment in comments:
             content_list.append('<!-- wp:paragraph -->\n')
-            content_list.append('<p>%(nick_name)s: %(content)s</p>\n' % {'nick_name': comment['nick_name'],                                                                         'content': comment['content']})
+            content_list.append('<p>%(nick_name)s: %(content)s</p>\n' % {'nick_name': comment['nick_name'],
+                                                                         'content': comment['content']})
             content_list.append('<!-- /wp:paragraph -->\n\n')
         content = ''.join(content_list)
         print(content)
         post_tags = []
-        categories = []  # 孙笑川
-        categories.append(blogger_info['nick_name'])
-        wordpress_post.post_wordpress(title, content, 'publish', post_tags, categories)
+        categories = [blogger_info['nick_name']]  # 孙笑川
+        wordpress_post.post_wordpress(title, content, 'publish', 'open', post_tags, categories)
 
         # comments = db['CommentItem'].find(latest_dataset_id)
+
 
 transfer_to_mysql()
 

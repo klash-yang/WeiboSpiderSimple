@@ -18,7 +18,6 @@ class WeiboSpider(Spider):
     base_url = "https://weibo.cn"
     blogger_id = ""
     dataset_id = str(uuid.uuid1())
-    create_dataset = dataset_operation.insert_dataset(dataset_id)
 
     def start_requests(self):
         start_uids = [
@@ -27,7 +26,7 @@ class WeiboSpider(Spider):
             # '2803301701',  # 人民日报
             # '1699432410'  # 新华社
         ]
-        self.create_dataset.execute()
+        dataset_operation.insert_dataset(self.dataset_id)
         for uid in start_uids:
             self.blogger_id = uid
             yield Request(url="https://weibo.cn/%s/info" % uid, callback=self.parse_information)
