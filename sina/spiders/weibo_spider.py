@@ -11,14 +11,14 @@ from sina.items import TweetsItem, InformationItem, RelationshipsItem, CommentIt
 from sina.spiders.utils import time_fix
 import time
 import uuid
-from sina.operation.create_dataset import CreateDataset
+import sina.operation.dataset_operation as dataset_operation
 
 class WeiboSpider(Spider):
     name = "weibo_spider"
     base_url = "https://weibo.cn"
     blogger_id = ""
     dataset_id = str(uuid.uuid1())
-    create_dataset = CreateDataset(dataset_id=dataset_id)
+    create_dataset = dataset_operation.insert_dataset(dataset_id)
 
     def start_requests(self):
         start_uids = [

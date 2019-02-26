@@ -1,31 +1,7 @@
 import pymongo
-import pymysql
-from sina.settings import SCRAP_MYSQL_HOST, SCRAP_MYSQL_USER, SCRAP_MYSQL_PWD, SCRAP_MYSQL_DB, LOCAL_MONGO_HOST, \
-    LOCAL_MONGO_PORT, DB_NAME
+from sina.settings import LOCAL_MONGO_HOST, LOCAL_MONGO_PORT, DB_NAME
 import sina.operation.wordpress_post as wordpress_post
-
-
-def mysql_con():
-    conn = pymysql.connect(host=SCRAP_MYSQL_HOST, port=3306, user=SCRAP_MYSQL_USER, passwd=SCRAP_MYSQL_PWD,
-                           db=SCRAP_MYSQL_DB,
-                           charset='utf8')  # 将这里换为你的数据库地址
-    return conn
-
-
-def close_mysql(cursor, conn):
-    conn.commit()
-    cursor.close()
-    conn.close()
-
-
-def get_latest_dataset_id():  # 获取最新的Dataset ID
-    conn = mysql_con()
-    cursor = conn.cursor()
-    sentence = "SELECT dataset_id from scrapinfo.scrap_info order by create_time desc limit 1"
-    cursor.execute(sentence)
-    result = cursor.fetchone()
-    close_mysql(cursor, conn)
-    return str(result[0])
+import sina.operation.dataset_operation as dataset_operation
 
 
 def get_mongo_db():
@@ -35,7 +11,7 @@ def get_mongo_db():
 
 
 def transfer_to_mysql():
-    latest_dataset_id = get_latest_dataset_id()
+    latest_dataset_id = dataset_operation.get_latest_dataset_id()
     db = get_mongo_db()
     tweets = db['Tweets'].find({"dataset_id": latest_dataset_id})
     for tweet in tweets:
@@ -50,13 +26,8 @@ def transfer_to_mysql():
         content_list.append('<!-- /wp:paragraph -->\n\n')
         for comment in comments:
             content_list.append('<!-- wp:paragraph -->\n')
-            content_list.append('<p>%(nick_name)s: %(content)s</p>\n' % {'nick_name': comment['nick_name'],
-                                                                         'content': comment['content']})
+            content_list.append('<p>%(nick_name)s: %(content)s</p>\n' % {'nick_name': comment['nick_name'],                                                                         'content': comment['content']})
             content_list.append('<!-- /wp:paragraph -->\n\n')
-
-            # content_list.append(comment['content'])
-            # content_list.append('\n')
-
         content = ''.join(content_list)
         print(content)
         post_tags = []
@@ -65,7 +36,6 @@ def transfer_to_mysql():
         wordpress_post.post_wordpress(title, content, 'publish', post_tags, categories)
 
         # comments = db['CommentItem'].find(latest_dataset_id)
-
 
 transfer_to_mysql()
 
