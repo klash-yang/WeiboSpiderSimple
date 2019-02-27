@@ -1,18 +1,12 @@
-import pymongo
-from sina.settings import LOCAL_MONGO_HOST, LOCAL_MONGO_PORT, DB_NAME
 import sina.operation.wordpress_post as wordpress_post
 import sina.operation.dataset_operation as dataset_operation
-
-
-def get_mongo_db():
-    client = pymongo.MongoClient(LOCAL_MONGO_HOST, LOCAL_MONGO_PORT)
-    db = client[DB_NAME]
-    return db
+import sina.operation.mongodb_operation as mongodb_operation
+import uuid
 
 
 def transfer_to_mysql():
     latest_dataset_id = dataset_operation.get_latest_dataset_id()
-    db = get_mongo_db()
+    db = mongodb_operation.get_mongo_db()
     tweets = db['Tweets'].find({"dataset_id": latest_dataset_id})
     for tweet in tweets:
         tweet_url = tweet['weibo_url']
@@ -27,12 +21,16 @@ def transfer_to_mysql():
                                                                          'content': comment['content']})
             content_list.append('<!-- /wp:paragraph -->\n\n')
         content = ''.join(content_list)
-        print(content)
+        # print(content)
         post_tags = []
         categories = [blogger_info['nick_name']]  # 孙笑川
-        wordpress_post.post_wordpress(title, content, 'publish', 'open', post_tags, categories)
+        guid = str(uuid.uuid1())
+        wordpress_post.post_wordpress(title, content, 'publish', 'open', post_tags, categories, guid)
 
         # comments = db['CommentItem'].find(latest_dataset_id)
+
+        # 整一个映射表, 映射微博url和
+
 
 
 transfer_to_mysql()

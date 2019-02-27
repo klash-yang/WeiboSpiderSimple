@@ -48,3 +48,10 @@ SCRAP_MYSQL_DB = 'scrapinfo'
 
 # Wordpress 配置
 WORDPRESS_ADDRESS = 'https://www.onedaycp.com/'
+WORDPRESS_ADMIN_NAME = 'poloyc'
+WORDPRESS_ADMIN_PASSWORD = 'Suckerlove5'
+
+# 最多爬多少天之前的微博
+MAX_INTERVAL = 5
+
+MAX_SCRAP_NUM = 20

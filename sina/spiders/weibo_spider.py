@@ -12,19 +12,24 @@ from sina.spiders.utils import time_fix
 import time
 import uuid
 import sina.operation.dataset_operation as dataset_operation
+import sina.operation.mongodb_operation as mongodb_operation
+import datetime
+from sina.settings import MAX_INTERVAL, MAX_SCRAP_NUM
 
 class WeiboSpider(Spider):
     name = "weibo_spider"
     base_url = "https://weibo.cn"
     blogger_id = ""
     dataset_id = str(uuid.uuid1())
+    total_scrap_num = 0
 
     def start_requests(self):
         start_uids = [
             # '3176010690'    # 孙狗
-            '1748526937'  # 我自己
+            # '1748526937'  # 我自己
             # '2803301701',  # 人民日报
             # '1699432410'  # 新华社
+            '6001318807'    # 猫哥
         ]
         dataset_operation.insert_dataset(self.dataset_id)
         for uid in start_uids:
@@ -102,13 +107,13 @@ class WeiboSpider(Spider):
                       priority=1)
 
         # 获取关注列表
-        yield Request(url=self.base_url + '/{}/follow?page=1'.format(information_item['_id']),
-                      callback=self.parse_follow,
-                      dont_filter=True)
+        # yield Request(url=self.base_url + '/{}/follow?page=1'.format(information_item['_id']),
+        #               callback=self.parse_follow,
+        #               dont_filter=True)
         # 获取粉丝列表
-        yield Request(url=self.base_url + '/{}/fans?page=1'.format(information_item['_id']),
-                      callback=self.parse_fans,
-                      dont_filter=True)
+        # yield Request(url=self.base_url + '/{}/fans?page=1'.format(information_item['_id']),
+        #               callback=self.parse_fans,
+        #               dont_filter=True)
 
     def parse_tweet(self, response):
         if response.url.endswith('page=1'):
@@ -125,9 +130,11 @@ class WeiboSpider(Spider):
         """
         tree_node = etree.HTML(response.body)
         tweet_nodes = tree_node.xpath('//div[@class="c" and @id]')
+        # 总爬虫数加一
         for tweet_node in tweet_nodes:
             try:
                 tweet_item = TweetsItem()
+                self.total_scrap_num += 1
                 tweet_item['dataset_id'] = self.dataset_id
                 tweet_item['blogger_id'] = self.blogger_id
                 tweet_item['crawl_time'] = int(time.time())
@@ -142,6 +149,19 @@ class WeiboSpider(Spider):
                     tweet_item['created_at'] = time_fix(create_time_info.split('来自')[0].strip())
                 else:
                     tweet_item['created_at'] = time_fix(create_time_info.strip())
+
+                # 设置爬虫终点,最多爬几天前的微博, 最多爬多少条
+                time_now = datetime.datetime.now()
+                created_time = datetime.datetime.strptime(tweet_item['created_at'], "%Y-%m-%d %H:%M:%S")
+                if (time_now - created_time).days > MAX_INTERVAL & self.total_scrap_num > MAX_SCRAP_NUM:
+                    # TODO 删除这条Twitter记录
+                    mongodb_operation.delete_twitter_rec(self.dataset_id, tweet_item['weibo_url'])
+                    return
+
+                # TODO 假如微博已经存在, 则删除过去微博记录以及评论记录
+                second_latest_dataset_id = dataset_operation.get_second_latest_dataset_id()
+                mongodb_operation.delete_twitter_rec(second_latest_dataset_id, tweet_item['weibo_url'])
+                mongodb_operation.delete_comment_under_twitter(second_latest_dataset_id, tweet_item['weibo_url'])
 
                 like_num = tweet_node.xpath('.//a[contains(text(),"赞[")]/text()')[-1]
                 tweet_item['like_num'] = int(re.search('\d+', like_num).group())
@@ -273,3 +293,4 @@ if __name__ == "__main__":
     process = CrawlerProcess(get_project_settings())
     process.crawl('weibo_spider')
     process.start()
+
