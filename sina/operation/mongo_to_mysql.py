@@ -24,13 +24,14 @@ def transfer_to_mysql():
         # print(content)
         post_tags = []
         categories = [blogger_info['nick_name']]  # 孙笑川
-        guid = str(uuid.uuid1())
-        wordpress_post.post_wordpress(title, content, 'publish', 'open', post_tags, categories, guid)
+        post_id = wordpress_post.post_wordpress(title, content, 'publish', 'open', post_tags, categories)
+
+
+
 
         # comments = db['CommentItem'].find(latest_dataset_id)
 
         # 整一个映射表, 映射微博url和
-
 
 
 transfer_to_mysql()
