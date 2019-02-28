@@ -4,14 +4,11 @@
     <list default="true" id="fec412e2-aba5-4dea-8906-f4cb6b8d07f0" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/WeiboSpider.iml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/WeiboSpider.iml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/codeStyles/Project.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/codeStyles/Project.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/dataSources/87773894-fb30-4500-aff6-2f298bcf7d77.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/dataSources/87773894-fb30-4500-aff6-2f298bcf7d77.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/sina/operation/dataset_operation.py" beforeDir="false" afterPath="$PROJECT_DIR$/sina/operation/scrap_info_operation.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/sina/operation/mongo_to_mysql.py" beforeDir="false" afterPath="$PROJECT_DIR$/sina/operation/mongo_to_mysql.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/sina/operation/mongodb_operation.py" beforeDir="false" afterPath="$PROJECT_DIR$/sina/operation/mongodb_operation.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/sina/operation/scrap_info_operation.py" beforeDir="false" afterPath="$PROJECT_DIR$/sina/operation/scrap_info_operation.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/sina/operation/wordpress_post.py" beforeDir="false" afterPath="$PROJECT_DIR$/sina/operation/wordpress_post.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/sina/spiders/weibo_spider.py" beforeDir="false" afterPath="$PROJECT_DIR$/sina/spiders/weibo_spider.py" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -23,14 +20,14 @@
     <SUITE FILE_PATH="coverage/WeiboSpider$create_dataset.coverage" NAME="create_dataset Coverage Results" MODIFIED="1550942239219" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/sina/operation" />
     <SUITE FILE_PATH="coverage/WeiboSpiderSimple$wordpress_post__1_.coverage" NAME="wordpress_post (1) Coverage Results" MODIFIED="1551167314368" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/sina/operation" />
     <SUITE FILE_PATH="coverage/WeiboSpider$wordpress_post__1_.coverage" NAME="wordpress_post (1) Coverage Results" MODIFIED="1550938666749" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/sina/operation" />
-    <SUITE FILE_PATH="coverage/WeiboSpider$mongo_to_mysql.coverage" NAME="mongo_to_mysql Coverage Results" MODIFIED="1551020376846" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/sina/operation" />
     <SUITE FILE_PATH="coverage/WeiboSpiderSimple$mongo_to_mysql.coverage" NAME="mongo_to_mysql Coverage Results" MODIFIED="1551350613806" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/sina/operation" />
-    <SUITE FILE_PATH="coverage/WeiboSpiderSimple$wordpress_act.coverage" NAME="wordpress_act Coverage Results" MODIFIED="1551162308156" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/sina/operation" />
-    <SUITE FILE_PATH="coverage/WeiboSpiderSimple$dataset_operation.coverage" NAME="dataset_operation Coverage Results" MODIFIED="1551175419349" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/sina/operation" />
+    <SUITE FILE_PATH="coverage/WeiboSpider$weibo_spider.coverage" NAME="weibo_spider Coverage Results" MODIFIED="1551369860978" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/sina/spiders" />
     <SUITE FILE_PATH="coverage/WeiboSpider$wordpress_post.coverage" NAME="wordpress_post Coverage Results" MODIFIED="1550910252944" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/sina/spiders" />
-    <SUITE FILE_PATH="coverage/WeiboSpiderSimple$scrap_info_operation.coverage" NAME="scrap_info_operation Coverage Results" MODIFIED="1551343365889" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/sina/operation" />
-    <SUITE FILE_PATH="coverage/WeiboSpider$weibo_spider.coverage" NAME="weibo_spider Coverage Results" MODIFIED="1551020456749" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/sina/spiders" />
+    <SUITE FILE_PATH="coverage/WeiboSpiderSimple$wordpress_act.coverage" NAME="wordpress_act Coverage Results" MODIFIED="1551162308156" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/sina/operation" />
     <SUITE FILE_PATH="coverage/WeiboSpiderSimple$weibo_spider.coverage" NAME="weibo_spider Coverage Results" MODIFIED="1551348466652" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/sina/spiders" />
+    <SUITE FILE_PATH="coverage/WeiboSpiderSimple$scrap_info_operation.coverage" NAME="scrap_info_operation Coverage Results" MODIFIED="1551343365889" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/sina/operation" />
+    <SUITE FILE_PATH="coverage/WeiboSpiderSimple$dataset_operation.coverage" NAME="dataset_operation Coverage Results" MODIFIED="1551175419349" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/sina/operation" />
+    <SUITE FILE_PATH="coverage/WeiboSpider$mongo_to_mysql.coverage" NAME="mongo_to_mysql Coverage Results" MODIFIED="1551373240099" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/sina/operation" />
   </component>
   <component name="DatabaseView">
     <option name="SHOW_INTERMEDIATE" value="true" />
@@ -91,15 +88,18 @@
     </expand>
     <select />
   </component>
+  <component name="FavoritesManager">
+    <favorites_list name="WeiboSpider" />
+  </component>
   <component name="FileEditorManager">
-    <splitter split-orientation="horizontal" split-proportion="0.4881356">
+    <splitter split-orientation="horizontal" split-proportion="0.43965518">
       <split-first>
         <leaf SIDE_TABS_SIZE_LIMIT_KEY="375">
           <file pinned="false" current-in-tab="false">
             <entry file="file://$PROJECT_DIR$/sina/items.py">
               <provider selected="true" editor-type-id="text-editor">
-                <state relative-caret-position="180">
-                  <caret line="9" column="13" selection-start-line="9" selection-start-column="4" selection-end-line="9" selection-end-column="13" />
+                <state relative-caret-position="200">
+                  <caret line="10" column="14" selection-start-line="10" selection-start-column="4" selection-end-line="10" selection-end-column="14" />
                 </state>
               </provider>
             </entry>
@@ -107,20 +107,8 @@
           <file pinned="false" current-in-tab="false">
             <entry file="file://$PROJECT_DIR$/sina/operation/scrap_info_operation.py">
               <provider selected="true" editor-type-id="text-editor">
-                <state relative-caret-position="1479">
-                  <caret line="79" lean-forward="true" selection-start-line="79" selection-end-line="79" />
-                  <folding>
-                    <element signature="e#0#14#0" expanded="true" />
-                  </folding>
-                </state>
-              </provider>
-            </entry>
-          </file>
-          <file pinned="false" current-in-tab="false">
-            <entry file="file://$PROJECT_DIR$/sina/operation/mongodb_operation.py">
-              <provider selected="true" editor-type-id="text-editor">
-                <state relative-caret-position="639">
-                  <caret line="64" column="29" lean-forward="true" selection-start-line="64" selection-start-column="29" selection-end-line="64" selection-end-column="29" />
+                <state relative-caret-position="300">
+                  <caret line="69" column="16" selection-start-line="69" selection-start-column="4" selection-end-line="69" selection-end-column="16" />
                   <folding>
                     <element signature="e#0#14#0" expanded="true" />
                   </folding>
@@ -131,8 +119,8 @@
           <file pinned="false" current-in-tab="true">
             <entry file="file://$PROJECT_DIR$/sina/operation/wordpress_post.py">
               <provider selected="true" editor-type-id="text-editor">
-                <state relative-caret-position="380">
-                  <caret line="19" column="20" selection-start-line="19" selection-start-column="20" selection-end-line="19" selection-end-column="20" />
+                <state relative-caret-position="460">
+                  <caret line="32" column="25" selection-start-line="32" selection-start-column="25" selection-end-line="32" selection-end-column="25" />
                   <folding>
                     <element signature="e#0#65#0" expanded="true" />
                   </folding>
@@ -141,21 +129,12 @@
             </entry>
           </file>
           <file pinned="false" current-in-tab="false">
-            <entry file="file://$PROJECT_DIR$/venv/Lib/site-packages/wordpress_xmlrpc/wordpress.py">
+            <entry file="file://$PROJECT_DIR$/sina/operation/mongodb_operation.py">
               <provider selected="true" editor-type-id="text-editor">
-                <state relative-caret-position="426">
-                  <caret line="115" column="33" selection-start-line="115" selection-start-column="33" selection-end-line="115" selection-end-column="33" />
-                </state>
-              </provider>
-            </entry>
-          </file>
-          <file pinned="false" current-in-tab="false">
-            <entry file="file://$PROJECT_DIR$/sina/spiders/weibo_spider.py">
-              <provider selected="true" editor-type-id="text-editor">
-                <state relative-caret-position="16">
-                  <caret line="165" column="39" selection-start-line="165" selection-end-line="165" selection-end-column="48" />
+                <state relative-caret-position="540">
+                  <caret line="27" lean-forward="true" selection-start-line="27" selection-end-line="27" />
                   <folding>
-                    <element signature="e#40#49#0" expanded="true" />
+                    <element signature="e#0#14#0" expanded="true" />
                   </folding>
                 </state>
               </provider>
@@ -177,7 +156,7 @@
           <file pinned="false" current-in-tab="false">
             <entry file="file://$PROJECT_DIR$/sina/settings.py">
               <provider selected="true" editor-type-id="text-editor">
-                <state relative-caret-position="559">
+                <state relative-caret-position="533">
                   <caret line="52" selection-start-line="52" selection-end-line="52" />
                 </state>
               </provider>
@@ -186,8 +165,8 @@
           <file pinned="false" current-in-tab="false">
             <entry file="file://$PROJECT_DIR$/sina/spiders/weibo_spider.py">
               <provider selected="true" editor-type-id="text-editor">
-                <state relative-caret-position="98">
-                  <caret line="265" selection-start-line="265" selection-end-line="265" />
+                <state relative-caret-position="580">
+                  <caret line="280" column="23" lean-forward="true" selection-start-line="280" selection-start-column="23" selection-end-line="280" selection-end-column="23" />
                   <folding>
                     <element signature="e#40#49#0" expanded="true" />
                   </folding>
@@ -199,7 +178,7 @@
             <entry file="file://$PROJECT_DIR$/sina/operation/mongo_to_mysql.py">
               <provider selected="true" editor-type-id="text-editor">
                 <state relative-caret-position="380">
-                  <caret line="28" column="8" selection-start-line="28" selection-start-column="8" selection-end-line="28" selection-end-column="8" />
+                  <caret line="28" column="36" lean-forward="true" selection-start-line="28" selection-start-column="36" selection-end-line="28" selection-end-column="36" />
                   <folding>
                     <element signature="e#0#54#0" expanded="true" />
                   </folding>
@@ -208,32 +187,12 @@
             </entry>
           </file>
           <file pinned="false" current-in-tab="false">
-            <entry file="das://87773894-fb30-4500-aff6-2f298bcf7d77/schema/scrapinfo/table/scrap_info">
+            <entry file="das://87773894-fb30-4500-aff6-2f298bcf7d77/schema/scrapinfo/table/post_info">
               <provider selected="true" editor-type-id="com.intellij.database.editor.DatabaseTableFileEditorProvider">
                 <state>
                   <filtering enabled="true" />
                 </state>
               </provider>
-            </entry>
-          </file>
-          <file pinned="false" current-in-tab="false">
-            <entry file="mongo://local/Sina/Information">
-              <provider selected="true" editor-type-id="MongoData" />
-            </entry>
-          </file>
-          <file pinned="false" current-in-tab="false">
-            <entry file="mongo://local/Sina/Information">
-              <provider selected="true" editor-type-id="MongoData" />
-            </entry>
-          </file>
-          <file pinned="false" current-in-tab="false">
-            <entry file="mongo://local/Sina/Information">
-              <provider selected="true" editor-type-id="MongoData" />
-            </entry>
-          </file>
-          <file pinned="false" current-in-tab="false">
-            <entry file="mongo://local/Sina/Comments">
-              <provider selected="true" editor-type-id="MongoData" />
             </entry>
           </file>
         </leaf>
@@ -262,6 +221,7 @@
       <find>delete_user_info</find>
       <find>delete_twitter_rec</find>
       <find>delete_previous_twitter_rec</find>
+      <find>list</find>
     </findStrings>
   </component>
   <component name="Git.Settings">
@@ -277,23 +237,23 @@
         <option value="$PROJECT_DIR$/README.md" />
         <option value="$PROJECT_DIR$/.gitignore" />
         <option value="$PROJECT_DIR$/sina/operation/wordpress_act.py" />
-        <option value="$APPLICATION_CONFIG_DIR$/consoles/db/87773894-fb30-4500-aff6-2f298bcf7d77/console.sql" />
         <option value="$PROJECT_DIR$/sina/operation/create_dataset.py" />
         <option value="$PROJECT_DIR$/sina/operation/dataset_operation.py" />
         <option value="$PROJECT_DIR$/sina/settings.py" />
         <option value="$APPLICATION_CONFIG_DIR$/consoles/.datagrid/cell" />
-        <option value="$PROJECT_DIR$/sina/operation/scrap_info_operation.py" />
         <option value="$PROJECT_DIR$/sina/operation/mongodb_operation.py" />
         <option value="$PROJECT_DIR$/sina/spiders/weibo_spider.py" />
-        <option value="$PROJECT_DIR$/sina/operation/wordpress_post.py" />
+        <option value="$APPLICATION_CONFIG_DIR$/consoles/db/87773894-fb30-4500-aff6-2f298bcf7d77/console.sql" />
+        <option value="$PROJECT_DIR$/sina/operation/scrap_info_operation.py" />
         <option value="$PROJECT_DIR$/sina/operation/mongo_to_mysql.py" />
+        <option value="$PROJECT_DIR$/sina/operation/wordpress_post.py" />
       </list>
     </option>
   </component>
-  <component name="ProjectFrameBounds" extendedState="6">
-    <option name="x" value="828" />
-    <option name="width" value="3027" />
-    <option name="height" value="2118" />
+  <component name="ProjectFrameBounds">
+    <option name="x" value="460" />
+    <option name="width" value="3383" />
+    <option name="height" value="2063" />
   </component>
   <component name="ProjectLevelVcsManager" settingsEditedManually="true">
     <ConfirmationsSetting value="2" id="Add" />
@@ -303,33 +263,44 @@
       <foldersAlwaysOnTop value="true" />
     </navigator>
     <panes>
-      <pane id="Scope" />
       <pane id="ProjectPane">
         <subPane>
           <expand>
             <path>
-              <item name="WeiboSpiderSimple" type="b2602c69:ProjectViewProjectNode" />
-              <item name="WeiboSpiderSimple" type="462c0819:PsiDirectoryNode" />
+              <item name="WeiboSpider" type="b2602c69:ProjectViewProjectNode" />
+              <item name="WeiboSpider" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
-              <item name="WeiboSpiderSimple" type="b2602c69:ProjectViewProjectNode" />
-              <item name="WeiboSpiderSimple" type="462c0819:PsiDirectoryNode" />
+              <item name="WeiboSpider" type="b2602c69:ProjectViewProjectNode" />
+              <item name="WeiboSpider" type="462c0819:PsiDirectoryNode" />
+              <item name="env" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="WeiboSpider" type="b2602c69:ProjectViewProjectNode" />
+              <item name="WeiboSpider" type="462c0819:PsiDirectoryNode" />
               <item name="sina" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
-              <item name="WeiboSpiderSimple" type="b2602c69:ProjectViewProjectNode" />
-              <item name="WeiboSpiderSimple" type="462c0819:PsiDirectoryNode" />
+              <item name="WeiboSpider" type="b2602c69:ProjectViewProjectNode" />
+              <item name="WeiboSpider" type="462c0819:PsiDirectoryNode" />
               <item name="sina" type="462c0819:PsiDirectoryNode" />
               <item name="operation" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="WeiboSpider" type="b2602c69:ProjectViewProjectNode" />
+              <item name="WeiboSpider" type="462c0819:PsiDirectoryNode" />
+              <item name="sina" type="462c0819:PsiDirectoryNode" />
+              <item name="spiders" type="462c0819:PsiDirectoryNode" />
             </path>
           </expand>
           <select />
         </subPane>
       </pane>
+      <pane id="Scope" />
     </panes>
   </component>
   <component name="PropertiesComponent">
-    <property name="DatabaseDriversLRU" value="mysql" />
+    <property name="DatabaseDriversLRU" value="mysql&#10;redshift" />
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="add_unversioned_files" value="$PROJECT_DIR$/.idea/workspace.xml" />
     <property name="database.console.LAST_STATE" value="false" />
@@ -500,6 +471,8 @@
       <workItem from="1551186369403" duration="12000" />
       <workItem from="1551234589640" duration="20360000" />
       <workItem from="1551332425821" duration="15266000" />
+      <workItem from="1551358034461" duration="912000" />
+      <workItem from="1551358977528" duration="6059000" />
     </task>
     <task id="LOCAL-00001" summary="Add Column">
       <created>1550941611168</created>
@@ -596,41 +569,50 @@
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="90499000" />
+    <option name="totallyTimeSpent" value="97470000" />
+  </component>
+  <component name="TodoView">
+    <todo-panel id="selected-file">
+      <is-autoscroll-to-source value="true" />
+    </todo-panel>
+    <todo-panel id="all">
+      <are-packages-shown value="true" />
+      <is-autoscroll-to-source value="true" />
+    </todo-panel>
   </component>
   <component name="ToolWindowManager">
-    <frame x="-7" y="-7" width="2575" height="1415" extended-state="6" />
+    <frame x="307" y="0" width="2255" height="1375" extended-state="0" />
     <editor active="true" />
     <layout>
-      <window_info content_ui="combo" id="Project" order="0" visible="true" weight="0.10547343" />
-      <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
-      <window_info id="Favorites" order="2" side_tool="true" />
+      <window_info content_ui="combo" id="Project" order="0" sideWeight="0.49856323" weight="0.1217691" />
+      <window_info id="Structure" order="1" sideWeight="0.50143677" side_tool="true" weight="0.12141393" />
+      <window_info id="Favorites" order="2" sideWeight="0.50060606" side_tool="true" weight="0.13552362" />
       <window_info id="DB Browser" order="3" />
       <window_info anchor="bottom" id="Message" order="0" />
       <window_info anchor="bottom" id="Find" order="1" sideWeight="0.49980024" weight="0.32927817" />
-      <window_info anchor="bottom" id="Run" order="2" sideWeight="0.4934079" weight="0.32278994" />
-      <window_info active="true" anchor="bottom" id="Debug" order="3" sideWeight="0.49460647" visible="true" weight="0.41768044" />
+      <window_info anchor="bottom" id="Run" order="2" sideWeight="0.49280742" weight="0.32244557" />
+      <window_info active="true" anchor="bottom" id="Debug" order="3" sideWeight="0.49358177" visible="true" weight="0.41708544" />
       <window_info anchor="bottom" id="Cvs" order="4" weight="0.25" />
       <window_info anchor="bottom" id="Inspection" order="5" weight="0.4" />
-      <window_info anchor="bottom" id="TODO" order="6" />
+      <window_info anchor="bottom" id="TODO" order="6" sideWeight="0.49948665" weight="0.32981315" />
       <window_info anchor="bottom" id="Docker" order="7" show_stripe_button="false" />
-      <window_info anchor="bottom" id="Version Control" order="8" sideWeight="0.4970036" weight="0.2351987" />
+      <window_info anchor="bottom" id="Version Control" order="8" sideWeight="0.4958932" weight="0.23476848" />
       <window_info anchor="bottom" id="Database Changes" order="9" />
-      <window_info anchor="bottom" id="Terminal" order="10" sideWeight="0.59328806" weight="0.37145174" />
-      <window_info anchor="bottom" id="Event Log" order="11" sideWeight="0.5053935" side_tool="true" visible="true" weight="0.41768044" />
+      <window_info anchor="bottom" id="Terminal" order="10" sideWeight="0.59211135" weight="0.29480737" />
+      <window_info anchor="bottom" id="Event Log" order="11" sideWeight="0.5064182" side_tool="true" weight="0.41708544" />
       <window_info anchor="bottom" id="Python Console" order="12" weight="0.32925835" />
-      <window_info anchor="bottom" id="Database Console" order="13" weight="0.43637848" />
+      <window_info anchor="bottom" id="Database Console" order="13" sideWeight="0.49979296" weight="0.4363484" />
       <window_info anchor="bottom" id="Messages" order="14" />
       <window_info anchor="bottom" id="DB Execution Console" order="15" />
-      <window_info anchor="bottom" id="SmartIM" order="16" />
+      <window_info anchor="bottom" id="SmartIM" order="16" sideWeight="0.4989733" weight="0.25588953" />
       <window_info anchor="right" id="Commander" internal_type="SLIDING" order="0" type="SLIDING" weight="0.4" />
       <window_info anchor="right" id="Ant Build" order="1" weight="0.25" />
       <window_info anchor="right" content_ui="combo" id="Hierarchy" order="2" weight="0.25" />
-      <window_info anchor="right" id="Json Parser" order="3" />
+      <window_info anchor="right" id="Json Parser" order="3" weight="0.32998493" />
       <window_info anchor="right" id="SciView" order="4" />
-      <window_info anchor="right" id="Mongo Explorer" order="5" weight="0.1785857" />
-      <window_info anchor="right" id="Database" order="6" visible="true" weight="0.11945665" />
-      <window_info anchor="right" id="Google Cloud Storage" order="7" />
+      <window_info anchor="right" id="Mongo Explorer" order="5" weight="0.09109731" />
+      <window_info anchor="right" id="Database" order="6" visible="true" weight="0.15057208" />
+      <window_info anchor="right" id="Google Cloud Storage" order="7" weight="0.32960662" />
     </layout>
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -682,6 +664,18 @@
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
+      <breakpoints>
+        <line-breakpoint enabled="true" suspend="THREAD" type="python-line">
+          <url>file://$PROJECT_DIR$/sina/operation/mongo_to_mysql.py</url>
+          <line>31</line>
+          <option name="timeStamp" value="13" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" suspend="THREAD" type="python-line">
+          <url>file://$PROJECT_DIR$/sina/operation/wordpress_post.py</url>
+          <line>33</line>
+          <option name="timeStamp" value="15" />
+        </line-breakpoint>
+      </breakpoints>
       <default-breakpoints>
         <breakpoint type="python-exception">
           <properties notifyOnTerminate="true" exception="BaseException">
@@ -802,13 +796,7 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/venv/Lib/site-packages/scrapy/crawler.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="247">
-          <caret line="147" column="8" selection-start-line="147" selection-start-column="8" selection-end-line="147" selection-end-column="8" />
-        </state>
-      </provider>
-    </entry>
+    <entry file="file://$PROJECT_DIR$/venv/Lib/site-packages/scrapy/crawler.py" />
     <entry file="file://$PROJECT_DIR$/requirements.txt">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="160">
@@ -816,34 +804,50 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$APPLICATION_CONFIG_DIR$/consoles/db/87773894-fb30-4500-aff6-2f298bcf7d77/console.sql">
-      <provider selected="true" editor-type-id="text-editor" />
+    <entry file="file://$PROJECT_DIR$/venv/Lib/site-packages/pymongo/cursor.py" />
+    <entry file="file://$PROJECT_DIR$/venv/Lib/site-packages/wordpress_xmlrpc/wordpress.py" />
+    <entry file="das://cc6ff9a0-e006-4d05-8628-a99de2eef333/schema/chouxiang/table/cx_posts">
+      <provider selected="true" editor-type-id="com.intellij.database.editor.DatabaseTableFileEditorProvider">
+        <state>
+          <filtering enabled="true" />
+        </state>
+      </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/sina/items.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="180">
-          <caret line="9" column="13" selection-start-line="9" selection-start-column="4" selection-end-line="9" selection-end-column="13" />
+        <state relative-caret-position="200">
+          <caret line="10" column="14" selection-start-line="10" selection-start-column="4" selection-end-line="10" selection-end-column="14" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$USER_HOME$/AppData/Local/Programs/Python/Python37/Lib/codecs.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="216">
+          <caret line="309" selection-start-line="309" selection-end-line="309" />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/sina/settings.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="559">
+        <state relative-caret-position="533">
           <caret line="52" selection-start-line="52" selection-end-line="52" />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/venv/Lib/site-packages/pymongo/cursor.py">
+    <entry file="file://$PROJECT_DIR$/sina/spiders/weibo_spider.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="262">
-          <caret line="585" selection-start-line="585" selection-end-line="585" />
+        <state relative-caret-position="580">
+          <caret line="280" column="23" lean-forward="true" selection-start-line="280" selection-start-column="23" selection-end-line="280" selection-end-column="23" />
+          <folding>
+            <element signature="e#40#49#0" expanded="true" />
+          </folding>
         </state>
       </provider>
     </entry>
-    <entry file="das://87773894-fb30-4500-aff6-2f298bcf7d77/schema/scrapinfo/table/post_info">
-      <provider selected="true" editor-type-id="com.intellij.database.editor.DatabaseTableFileEditorProvider">
-        <state>
-          <filtering enabled="true" />
+    <entry file="file://$APPLICATION_CONFIG_DIR$/consoles/db/87773894-fb30-4500-aff6-2f298bcf7d77/console.sql">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="20">
+          <caret line="1" column="50" lean-forward="true" selection-start-line="1" selection-start-column="50" selection-end-line="1" selection-end-column="50" />
         </state>
       </provider>
     </entry>
@@ -854,56 +858,29 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/venv/Lib/site-packages/wordpress_xmlrpc/wordpress.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="426">
-          <caret line="115" column="33" selection-start-line="115" selection-start-column="33" selection-end-line="115" selection-end-column="33" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/sina/spiders/weibo_spider.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="98">
-          <caret line="265" selection-start-line="265" selection-end-line="265" />
-          <folding>
-            <element signature="e#40#49#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="das://cc6ff9a0-e006-4d05-8628-a99de2eef333/schema/chouxiang/table/cx_posts">
+    <entry file="das://87773894-fb30-4500-aff6-2f298bcf7d77/schema/scrapinfo/table/post_info">
       <provider selected="true" editor-type-id="com.intellij.database.editor.DatabaseTableFileEditorProvider">
         <state>
           <filtering enabled="true" />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/sina/operation/scrap_info_operation.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="1479">
-          <caret line="79" lean-forward="true" selection-start-line="79" selection-end-line="79" />
-          <folding>
-            <element signature="e#0#14#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/sina/operation/mongodb_operation.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="639">
-          <caret line="64" column="29" lean-forward="true" selection-start-line="64" selection-start-column="29" selection-end-line="64" selection-end-column="29" />
+        <state relative-caret-position="540">
+          <caret line="27" lean-forward="true" selection-start-line="27" selection-end-line="27" />
           <folding>
             <element signature="e#0#14#0" expanded="true" />
           </folding>
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/sina/operation/wordpress_post.py">
+    <entry file="file://$PROJECT_DIR$/sina/operation/scrap_info_operation.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="380">
-          <caret line="19" column="20" selection-start-line="19" selection-start-column="20" selection-end-line="19" selection-end-column="20" />
+        <state relative-caret-position="300">
+          <caret line="69" column="16" selection-start-line="69" selection-start-column="4" selection-end-line="69" selection-end-column="16" />
           <folding>
-            <element signature="e#0#65#0" expanded="true" />
+            <element signature="e#0#14#0" expanded="true" />
           </folding>
         </state>
       </provider>
@@ -911,9 +888,19 @@
     <entry file="file://$PROJECT_DIR$/sina/operation/mongo_to_mysql.py">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="380">
-          <caret line="28" column="8" selection-start-line="28" selection-start-column="8" selection-end-line="28" selection-end-column="8" />
+          <caret line="28" column="36" lean-forward="true" selection-start-line="28" selection-start-column="36" selection-end-line="28" selection-end-column="36" />
           <folding>
             <element signature="e#0#54#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/sina/operation/wordpress_post.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="460">
+          <caret line="32" column="25" selection-start-line="32" selection-start-column="25" selection-end-line="32" selection-end-column="25" />
+          <folding>
+            <element signature="e#0#65#0" expanded="true" />
           </folding>
         </state>
       </provider>
