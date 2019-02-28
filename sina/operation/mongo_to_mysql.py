@@ -1,17 +1,18 @@
 import sina.operation.wordpress_post as wordpress_post
-import sina.operation.dataset_operation as dataset_operation
+import sina.operation.scrap_info_operation as scrap_info_operation
 import sina.operation.mongodb_operation as mongodb_operation
 import uuid
 
 
 def transfer_to_mysql():
-    latest_dataset_id = dataset_operation.get_latest_dataset_id()
+    latest_dataset_id = scrap_info_operation.get_latest_dataset_id()
     db = mongodb_operation.get_mongo_db()
     tweets = db['Tweets'].find({"dataset_id": latest_dataset_id})
     for tweet in tweets:
         tweet_url = tweet['weibo_url']
         blogger_id = tweet['blogger_id']
-        blogger_info = db['Information'].find({"dataset_id": latest_dataset_id, "blogger_id": blogger_id})[0]
+        blogger_info = list(db['Information'].find({"dataset_id": latest_dataset_id, "blogger_id": blogger_id}))
+        print(blogger_info)
         comments = db['Comments'].find({"dataset_id": latest_dataset_id, "weibo_url": tweet_url})
         title = tweet['content']
         content_list = ['<!-- wp:paragraph -->\n', '<p>评论:</p>\n', '<!-- /wp:paragraph -->\n\n']
@@ -21,17 +22,16 @@ def transfer_to_mysql():
                                                                          'content': comment['content']})
             content_list.append('<!-- /wp:paragraph -->\n\n')
         content = ''.join(content_list)
-        # print(content)
+        print(content)
         post_tags = []
-        categories = [blogger_info['nick_name']]  # 孙笑川
-        guid = str(uuid.uuid1())
-        wordpress_post.post_wordpress(title, content, 'publish', 'open', post_tags, categories, guid)
+        categories = [] # 孙笑川
+        # categories.insert(1, blogger_info['nick_name'])
 
-        # comments = db['CommentItem'].find(latest_dataset_id)
+        categories.append(blogger_info['nick_name'])
+        post_id = wordpress_post.post_wordpress(title, content, 'publish', 'open', post_tags, blogger_info['nick_name'])
+        scrap_info_operation.insert_mapping_record(post_id, latest_dataset_id, tweet_url, blogger_info['nick_name'])
 
-        # 整一个映射表, 映射微博url和
-
-
+        # 假如之前存在多个此微博的postid,则全部删除了然后再插入新的
 
 transfer_to_mysql()
 

@@ -11,10 +11,11 @@ from sina.items import TweetsItem, InformationItem, RelationshipsItem, CommentIt
 from sina.spiders.utils import time_fix
 import time
 import uuid
-import sina.operation.dataset_operation as dataset_operation
+import sina.operation.scrap_info_operation as dataset_operation
 import sina.operation.mongodb_operation as mongodb_operation
 import datetime
 from sina.settings import MAX_INTERVAL, MAX_SCRAP_NUM
+
 
 class WeiboSpider(Spider):
     name = "weibo_spider"
@@ -29,7 +30,7 @@ class WeiboSpider(Spider):
             # '1748526937'  # 我自己
             # '2803301701',  # 人民日报
             # '1699432410'  # 新华社
-            '6001318807'    # 猫哥
+            '6001318807'  # 猫哥
         ]
         dataset_operation.insert_dataset(self.dataset_id)
         for uid in start_uids:
@@ -41,6 +42,10 @@ class WeiboSpider(Spider):
         information_item = InformationItem()
         information_item['dataset_id'] = self.dataset_id
         information_item['blogger_id'] = self.blogger_id
+
+        # TODO 假如用户已经存在,则删除过去的用户信息
+        mongodb_operation.delete_previous_user_info(blogger_id=self.blogger_id, current_dataset_id=self.dataset_id)
+
         information_item['crawl_time'] = int(time.time())
         selector = Selector(response)
         information_item['_id'] = re.findall('(\d+)/info', response.url)[0]
@@ -152,16 +157,15 @@ class WeiboSpider(Spider):
 
                 # 设置爬虫终点,最多爬几天前的微博, 最多爬多少条
                 time_now = datetime.datetime.now()
-                created_time = datetime.datetime.strptime(tweet_item['created_at'], "%Y-%m-%d %H:%M:%S")
+                created_time = datetime.datetime.strptime(tweet_item['created_at'], "%Y-%m-%d %H:%M")
                 if (time_now - created_time).days > MAX_INTERVAL & self.total_scrap_num > MAX_SCRAP_NUM:
                     # TODO 删除这条Twitter记录
-                    mongodb_operation.delete_twitter_rec(self.dataset_id, tweet_item['weibo_url'])
+                    mongodb_operation.delete_twitter_rec(weibo_url=tweet_item['weibo_url'], dataset_id=self.dataset_id)
                     return
 
                 # TODO 假如微博已经存在, 则删除过去微博记录以及评论记录
-                second_latest_dataset_id = dataset_operation.get_second_latest_dataset_id()
-                mongodb_operation.delete_twitter_rec(second_latest_dataset_id, tweet_item['weibo_url'])
-                mongodb_operation.delete_comment_under_twitter(second_latest_dataset_id, tweet_item['weibo_url'])
+                mongodb_operation.delete_previous_twitter_rec(weibo_url=tweet_item['weibo_url'], current_dataset_id=self.dataset_id)
+                mongodb_operation.delete_previous_comment_under_twitter(weibo_url=tweet_item['weibo_url'], current_dataset_id=self.dataset_id)
 
                 like_num = tweet_node.xpath('.//a[contains(text(),"赞[")]/text()')[-1]
                 tweet_item['like_num'] = int(re.search('\d+', like_num).group())
@@ -279,7 +283,8 @@ class WeiboSpider(Spider):
             comment_item['crawl_time'] = int(time.time())
             comment_item['weibo_url'] = response.meta['weibo_url']
             comment_item['comment_user_id'] = re.search(r'/u/(\d+)', comment_user_url).group(1)
-            comment_item['nick_name'] = comment_node.xpath('.//a[contains(@href,"/u/")]').xpath('string(.)').extract_first()
+            comment_item['nick_name'] = comment_node.xpath('.//a[contains(@href,"/u/")]').xpath(
+                'string(.)').extract_first()
             comment_item['content'] = comment_node.xpath('.//span[@class="ctt"]').xpath('string(.)').extract_first()
             like_num = comment_node.xpath('.//span[@class="cc"]').xpath('string(.)').extract_first()
             comment_item['like_num'] = int(re.search('\d+', like_num).group())
@@ -293,4 +298,3 @@ if __name__ == "__main__":
     process = CrawlerProcess(get_project_settings())
     process.crawl('weibo_spider')
     process.start()
-
