@@ -8,6 +8,3 @@ venv
 /.idea/codeStyles/Project.xml
 /.idea/WeiboSpider.iml
 /.idea/workspace.xml
-sina/operation/__pycache__/dataset_operation.cpython-37.pyc
-sina/operation/__pycache__/mongodb_operation.cpython-37.pyc
-sina/operation/__pycache__/wordpress_post.cpython-37.pyc
