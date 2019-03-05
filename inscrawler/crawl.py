@@ -5,10 +5,12 @@ from inscrawler.utils.browser import Browser
 from docopt import docopt
 from tqdm import tqdm
 
+
 def downloadImage(imageUrl, imagePath):
     img_data = requests.get(imageUrl).content
     with open(imagePath, 'wb') as handler:
         handler.write(img_data)
+
 
 def writeToFile(filePath, data):
     file = open(filePath, 'w', encoding='utf8')
@@ -16,10 +18,11 @@ def writeToFile(filePath, data):
         if type(i) is list:
             i = "\n".join(i)
         try:
-            file.write(str(i)+"\n")
+            file.write(str(i) + "\n")
         except Exception as e:
             pass
     file.close()
+
 
 def makeDir(dirPath):
     if not os.path.exists(dirPath):
@@ -29,6 +32,7 @@ def makeDir(dirPath):
             return False
     return True
 
+
 def extractLang(data):
     result = ""
     try:
@@ -36,6 +40,7 @@ def extractLang(data):
     except Exception as e:
         pass
     return result
+
 
 def extractLikes(data, lang="en"):
     result = ""
@@ -49,6 +54,7 @@ def extractLikes(data, lang="en"):
         result = ""
     return result
 
+
 def extractComments(data, lang="en"):
     result = ""
     try:
@@ -61,6 +67,7 @@ def extractComments(data, lang="en"):
         result = ""
     return result
 
+
 def extractDateTime(data):
     result = ""
     try:
@@ -69,6 +76,7 @@ def extractDateTime(data):
         pass
         result = ""
     return result
+
 
 def extractCommentsMessage(data):
     results = []
@@ -79,11 +87,12 @@ def extractCommentsMessage(data):
                 if i > 1:
                     name = sp[i].split(">")[1].split("<")[0]
                     message = sp[i].split(">")[4].split("<")[0]
-                    results.append(name+": "+message)
+                    results.append(name + ": " + message)
     except Exception as e:
         pass
         results = []
     return results
+
 
 def extractCaption(data):
     result = ""
@@ -100,17 +109,18 @@ def extractCaption(data):
         result = ""
     return result
 
-def runCrawl(limitNum = 0, queryList = [], is_all_comments=False):
+
+def runCrawl(limitNum=0, queryList=[], is_all_comments=False):
     browser = Browser("driver/chromedriver")
     for query in queryList:
         browser.clearLink()
         makeDir("data")
-        makeDir("data/"+query)
+        makeDir("data/" + query)
         mUrl = ""
         if query[0] == "#":
-            mUrl = "https://www.instagram.com/explore/tags/"+query[1:]+"/?hl=en"
+            mUrl = "https://www.instagram.com/explore/tags/" + query[1:] + "/?hl=en"
         else:
-            mUrl = "https://www.instagram.com/"+query+"/?hl=en"
+            mUrl = "https://www.instagram.com/" + query + "/?hl=en"
         browser.goToPage(mUrl)
         print("collecting url of " + query + "...")
         browser.scrollPageToBottomUntilEnd(browser.collectDpageUrl, limitNum)
@@ -121,13 +131,13 @@ def runCrawl(limitNum = 0, queryList = [], is_all_comments=False):
         for url in tqdm(slist):
             dirName = url.split("/")[4]
             # skip if already crawled 
-            if not makeDir("data/"+query+"/"+dirName):
+            if not makeDir("data/" + query + "/" + dirName):
                 continue
             browser.goToPage(url)
             if is_all_comments:
                 browser.expandComments()
             cur = browser.getPageSource()
-            writeToFile("data/"+query+"/"+dirName+"/raw.html", [cur])
+            writeToFile("data/" + query + "/" + dirName + "/raw.html", [cur])
             infoData = cur.split("<meta content=")[1].split(" ")
             # extract data
             lang = extractLang(cur)
@@ -139,8 +149,8 @@ def runCrawl(limitNum = 0, queryList = [], is_all_comments=False):
             # print("likes:",likes," comments:", comments," caption:", caption, 
             #     "commentMessages:", commentMessages, "dateTime:", dateTime)
             writeToFile(
-                "data/"+query+"/"+dirName+"/info.txt", 
-                [   
+                "data/" + query + "/" + dirName + "/info.txt",
+                [
                     "likes: ", likes, "",
                     "comments: ", comments, "",
                     "caption: ", caption, "",
@@ -150,13 +160,14 @@ def runCrawl(limitNum = 0, queryList = [], is_all_comments=False):
             )
             # download image
             imageUrl = cur.split('meta property="og:image" content="')[1].split('"')[0]
-            downloadImage(imageUrl,"data/"+query+"/"+dirName+"/image.jpg")
+            downloadImage(imageUrl, "data/" + query + "/" + dirName + "/image.jpg")
             time.sleep(1)
         print("query " + query + " collecting finish")
 
     time.sleep(2)
     browser.driver.quit()
     print("FINISH!")
+
 
 def main():
     args = docopt("""
@@ -188,7 +199,8 @@ def main():
     if not query:
         print('Please input query!')
     else:
-        queryList = query.replace(" ","").split(",")
+        queryList = query.replace(" ", "").split(",")
         runCrawl(limitNum=limitNum, queryList=queryList, is_all_comments=is_all_comments)
+
 
 main()
