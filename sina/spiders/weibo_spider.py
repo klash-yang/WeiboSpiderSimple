@@ -14,7 +14,7 @@ import uuid
 import sina.operation.scrap_info_operation as dataset_operation
 import sina.operation.mongodb_operation as mongodb_operation
 import datetime
-from sina.settings import MAX_INTERVAL, MAX_SCRAP_NUM
+from sina.settings import MAX_INTERVAL, MAX_SCRAP_NUM, MIN_LIKE
 
 
 class WeiboSpider(Spider):
@@ -277,6 +277,11 @@ class WeiboSpider(Spider):
             comment_user_url = comment_node.xpath('.//a[contains(@href,"/u/")]/@href').extract_first()
             if not comment_user_url:
                 continue
+
+            like_num_raw = comment_node.xpath('.//span[@class="cc"]').xpath('string(.)').extract_first()
+            like_num = int(re.search('\d+', like_num_raw).group())
+            if like_num <= MIN_LIKE:
+                continue
             comment_item = CommentItem()
             comment_item['dataset_id'] = self.dataset_id
             comment_item['blogger_id'] = self.blogger_id
@@ -286,8 +291,7 @@ class WeiboSpider(Spider):
             comment_item['nick_name'] = comment_node.xpath('.//a[contains(@href,"/u/")]').xpath(
                 'string(.)').extract_first()
             comment_item['content'] = comment_node.xpath('.//span[@class="ctt"]').xpath('string(.)').extract_first()
-            like_num = comment_node.xpath('.//span[@class="cc"]').xpath('string(.)').extract_first()
-            comment_item['like_num'] = int(re.search('\d+', like_num).group())
+            comment_item['like_num'] = like_num
             comment_item['_id'] = comment_node.xpath('./@id').extract_first()
             created_at = comment_node.xpath('.//span[@class="ct"]/text()').extract_first()
             comment_item['created_at'] = time_fix(created_at.split('\xa0')[0])
