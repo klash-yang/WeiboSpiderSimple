@@ -36,7 +36,7 @@ def transfer_to_mysql():
         # 假如之前存在多个此微博的postid,则全部删除了然后再插入新的
 
 
-transfer_to_mysql()
+# transfer_to_mysql()
 
 # items = table.find()
 # content = []

@@ -3,46 +3,5 @@
   <component name="JavaScriptSettings">
     <option name="languageLevel" value="ES6" />
   </component>
-  <component name="MavenImportPreferences">
-    <option name="generalSettings">
-      <MavenGeneralSettings>
-        <option name="localRepository" value="C:\Users\Cheng C Yang\.m2\repository" />
-        <option name="userSettingsFile" value="C:\Users\Cheng C Yang\.m2\settings.xml" />
-      </MavenGeneralSettings>
-    </option>
-  </component>
-  <component name="ProjectInspectionProfilesVisibleTreeState">
-    <entry key="Project Default">
-      <profile-state>
-        <expanded-state>
-          <State />
-          <State>
-            <id>Android</id>
-          </State>
-          <State>
-            <id>CorrectnessLintAndroid</id>
-          </State>
-          <State>
-            <id>Java</id>
-          </State>
-          <State>
-            <id>LintAndroid</id>
-          </State>
-          <State>
-            <id>Probable bugsJava</id>
-          </State>
-          <State>
-            <id>RELAX NG</id>
-          </State>
-          <State>
-            <id>XPath</id>
-          </State>
-          <State>
-            <id>XSLT</id>
-          </State>
-        </expanded-state>
-      </profile-state>
-    </entry>
-  </component>
   <component name="ProjectRootManager" version="2" project-jdk-name="Python 3.7 (env)" project-jdk-type="Python SDK" />
 </project>

@@ -13,8 +13,10 @@ import time
 import uuid
 import sina.operation.scrap_info_operation as dataset_operation
 import sina.operation.mongodb_operation as mongodb_operation
+import sina.operation.mongo_to_mysql as mongo_to_mysql
 import datetime
 from sina.settings import MAX_INTERVAL, MAX_SCRAP_NUM, MIN_LIKE
+
 
 
 class WeiboSpider(Spider):
@@ -36,6 +38,8 @@ class WeiboSpider(Spider):
         for uid in start_uids:
             self.blogger_id = uid
             yield Request(url="https://weibo.cn/%s/info" % uid, callback=self.parse_information)
+        # 生成wordpress文章
+        mongo_to_mysql.transfer_to_mysql()
 
     def parse_information(self, response):
         """ 抓取个人信息 """
