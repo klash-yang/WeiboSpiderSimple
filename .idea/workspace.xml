@@ -2,22 +2,8 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="fec412e2-aba5-4dea-8906-f4cb6b8d07f0" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/.gitignore" beforeDir="false" afterPath="$PROJECT_DIR$/.gitignore" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/WeiboSpider.iml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/codeStyles/Project.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/dataSources.local.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/dataSources.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/dataSources/87773894-fb30-4500-aff6-2f298bcf7d77.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/dataSources/cc6ff9a0-e006-4d05-8628-a99de2eef333.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/dbnavigator.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/encodings.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/modules.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/mongoSettings.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/sqldialects.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/vcs.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/sina/operation/mongo_to_mysql.py" beforeDir="false" afterPath="$PROJECT_DIR$/sina/operation/mongo_to_mysql.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/sina/spiders/weibo_spider.py" beforeDir="false" afterPath="$PROJECT_DIR$/sina/spiders/weibo_spider.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/inscrawler/crawl.py" beforeDir="false" afterPath="$PROJECT_DIR$/inscrawler/crawl.py" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -28,6 +14,7 @@
   <component name="CoverageDataManager">
     <SUITE FILE_PATH="coverage/WeiboSpider$create_dataset.coverage" NAME="create_dataset Coverage Results" MODIFIED="1550942239219" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/sina/operation" />
     <SUITE FILE_PATH="coverage/WeiboSpiderSimple$wordpress_post__1_.coverage" NAME="wordpress_post (1) Coverage Results" MODIFIED="1551167314368" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/sina/operation" />
+    <SUITE FILE_PATH="coverage/WeiboSpider$crawl.coverage" NAME="crawl Coverage Results" MODIFIED="1551978579605" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/inscrawler" />
     <SUITE FILE_PATH="coverage/WeiboSpider$wordpress_post__1_.coverage" NAME="wordpress_post (1) Coverage Results" MODIFIED="1550938666749" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/sina/operation" />
     <SUITE FILE_PATH="coverage/WeiboSpiderSimple$mongo_to_mysql.coverage" NAME="mongo_to_mysql Coverage Results" MODIFIED="1551350613806" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/sina/operation" />
     <SUITE FILE_PATH="coverage/WeiboSpider$weibo_spider.coverage" NAME="weibo_spider Coverage Results" MODIFIED="1551799975763" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/sina/spiders" />
@@ -56,7 +43,7 @@
     <favorites_list name="WeiboSpider" />
   </component>
   <component name="FileEditorManager">
-    <splitter split-orientation="horizontal" split-proportion="0.48340347">
+    <splitter split-orientation="horizontal" split-proportion="0.46603325">
       <split-first>
         <leaf SIDE_TABS_SIZE_LIMIT_KEY="375">
           <file pinned="false" current-in-tab="false">
@@ -64,18 +51,6 @@
               <provider selected="true" editor-type-id="text-editor">
                 <state relative-caret-position="200">
                   <caret line="10" column="14" selection-start-line="10" selection-start-column="4" selection-end-line="10" selection-end-column="14" />
-                </state>
-              </provider>
-            </entry>
-          </file>
-          <file pinned="false" current-in-tab="false">
-            <entry file="file://$PROJECT_DIR$/sina/operation/wordpress_post.py">
-              <provider selected="true" editor-type-id="text-editor">
-                <state relative-caret-position="540">
-                  <caret line="32" column="25" selection-start-line="32" selection-start-column="25" selection-end-line="32" selection-end-column="25" />
-                  <folding>
-                    <element signature="e#0#65#0" expanded="true" />
-                  </folding>
                 </state>
               </provider>
             </entry>
@@ -95,8 +70,8 @@
           <file pinned="false" current-in-tab="false">
             <entry file="file://$PROJECT_DIR$/sina/spiders/weibo_spider.py">
               <provider selected="true" editor-type-id="text-editor">
-                <state relative-caret-position="60">
-                  <caret line="18" selection-start-line="18" selection-end-line="18" />
+                <state relative-caret-position="240">
+                  <caret line="27" selection-start-line="27" selection-end-line="27" />
                   <folding>
                     <element signature="e#40#49#0" expanded="true" />
                   </folding>
@@ -104,20 +79,11 @@
               </provider>
             </entry>
           </file>
-          <file pinned="false" current-in-tab="false">
-            <entry file="file://$PROJECT_DIR$/sina/settings.py">
-              <provider selected="true" editor-type-id="text-editor">
-                <state relative-caret-position="580">
-                  <caret line="29" column="1" selection-start-line="29" selection-start-column="1" selection-end-line="29" selection-end-column="1" />
-                </state>
-              </provider>
-            </entry>
-          </file>
           <file pinned="false" current-in-tab="true">
             <entry file="file://$PROJECT_DIR$/inscrawler/crawl.py">
               <provider selected="true" editor-type-id="text-editor">
-                <state relative-caret-position="164">
-                  <caret line="25" column="28" selection-start-line="25" selection-start-column="28" selection-end-line="25" selection-end-column="28" />
+                <state relative-caret-position="571">
+                  <caret line="226" lean-forward="true" selection-start-line="226" selection-end-line="226" />
                   <folding>
                     <element signature="e#0#11#0" expanded="true" />
                   </folding>
@@ -129,32 +95,26 @@
       </split-first>
       <split-second>
         <leaf SIDE_TABS_SIZE_LIMIT_KEY="375">
-          <file pinned="false" current-in-tab="false">
-            <entry file="file://$PROJECT_DIR$/sina/spiders/weibo_spider.py">
+          <file pinned="false" current-in-tab="true">
+            <entry file="file://$PROJECT_DIR$/inscrawler/crawl.py">
               <provider selected="true" editor-type-id="text-editor">
-                <state relative-caret-position="214">
-                  <caret line="277" column="17" selection-start-line="277" selection-start-column="17" selection-end-line="277" selection-end-column="17" />
+                <state relative-caret-position="243">
+                  <caret line="204" lean-forward="true" selection-start-line="204" selection-end-line="204" />
                   <folding>
-                    <element signature="e#40#49#0" expanded="true" />
+                    <element signature="e#0#11#0" expanded="true" />
                   </folding>
                 </state>
               </provider>
             </entry>
           </file>
           <file pinned="false" current-in-tab="false">
-            <entry file="file://$PROJECT_DIR$/requirements.txt">
+            <entry file="file://$PROJECT_DIR$/sina/spiders/weibo_spider.py">
               <provider selected="true" editor-type-id="text-editor">
-                <state relative-caret-position="200">
-                  <caret line="10" column="13" selection-start-line="10" selection-start-column="13" selection-end-line="10" selection-end-column="13" />
-                </state>
-              </provider>
-            </entry>
-          </file>
-          <file pinned="false" current-in-tab="true">
-            <entry file="file://$PROJECT_DIR$/.gitignore">
-              <provider selected="true" editor-type-id="text-editor">
-                <state relative-caret-position="100">
-                  <caret line="5" column="5" selection-start-line="5" selection-start-column="5" selection-end-line="5" selection-end-column="5" />
+                <state relative-caret-position="401">
+                  <caret line="261" column="6" selection-start-line="261" selection-start-column="6" selection-end-line="261" selection-end-column="6" />
+                  <folding>
+                    <element signature="e#40#49#0" expanded="true" />
+                  </folding>
                 </state>
               </provider>
             </entry>
@@ -199,6 +159,7 @@
       <find>delete_previous_twitter_rec</find>
       <find>list</find>
       <find>like</find>
+      <find>chromedriver</find>
     </findStrings>
   </component>
   <component name="Git.Settings">
@@ -224,13 +185,14 @@
         <option value="$PROJECT_DIR$/sina/spiders/weibo_spider.py" />
         <option value="$PROJECT_DIR$/requirements.txt" />
         <option value="$PROJECT_DIR$/.gitignore" />
+        <option value="$PROJECT_DIR$/inscrawler/crawl.py" />
       </list>
     </option>
   </component>
-  <component name="ProjectFrameBounds" extendedState="6">
-    <option name="x" value="-12" />
-    <option name="width" value="3861" />
-    <option name="height" value="2064" />
+  <component name="ProjectFrameBounds">
+    <option name="x" value="511" />
+    <option name="width" value="3338" />
+    <option name="height" value="2111" />
   </component>
   <component name="ProjectLevelVcsManager" settingsEditedManually="true">
     <ConfirmationsSetting value="2" id="Add" />
@@ -250,19 +212,18 @@
             <path>
               <item name="WeiboSpider" type="b2602c69:ProjectViewProjectNode" />
               <item name="WeiboSpider" type="462c0819:PsiDirectoryNode" />
-              <item name="sina" type="462c0819:PsiDirectoryNode" />
+              <item name="inscrawler" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="WeiboSpider" type="b2602c69:ProjectViewProjectNode" />
+              <item name="WeiboSpider" type="462c0819:PsiDirectoryNode" />
+              <item name="inscrawler" type="462c0819:PsiDirectoryNode" />
+              <item name="driver" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
               <item name="WeiboSpider" type="b2602c69:ProjectViewProjectNode" />
               <item name="WeiboSpider" type="462c0819:PsiDirectoryNode" />
               <item name="sina" type="462c0819:PsiDirectoryNode" />
-              <item name="operation" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="WeiboSpider" type="b2602c69:ProjectViewProjectNode" />
-              <item name="WeiboSpider" type="462c0819:PsiDirectoryNode" />
-              <item name="sina" type="462c0819:PsiDirectoryNode" />
-              <item name="spiders" type="462c0819:PsiDirectoryNode" />
             </path>
           </expand>
           <select />
@@ -301,7 +262,29 @@
       </list>
     </option>
   </component>
-  <component name="RunManager" selected="Python.weibo_spider">
+  <component name="RunManager" selected="Python.crawl">
+    <configuration name="crawl" type="PythonConfigurationType" factoryName="Python" temporary="true">
+      <module name="WeiboSpider" />
+      <option name="INTERPRETER_OPTIONS" value="" />
+      <option name="PARENT_ENVS" value="true" />
+      <envs>
+        <env name="PYTHONUNBUFFERED" value="1" />
+      </envs>
+      <option name="SDK_HOME" value="" />
+      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$/inscrawler" />
+      <option name="IS_MODULE_SDK" value="true" />
+      <option name="ADD_CONTENT_ROOTS" value="true" />
+      <option name="ADD_SOURCE_ROOTS" value="true" />
+      <EXTENSION ID="PythonCoverageRunConfigurationExtension" runner="coverage.py" />
+      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/inscrawler/crawl.py" />
+      <option name="PARAMETERS" value="" />
+      <option name="SHOW_COMMAND_LINE" value="false" />
+      <option name="EMULATE_TERMINAL" value="false" />
+      <option name="MODULE_MODE" value="false" />
+      <option name="REDIRECT_INPUT" value="false" />
+      <option name="INPUT_FILE" value="" />
+      <method v="2" />
+    </configuration>
     <configuration name="dataset_operation" type="PythonConfigurationType" factoryName="Python" temporary="true">
       <module name="WeiboSpider" />
       <option name="INTERPRETER_OPTIONS" value="" />
@@ -390,35 +373,13 @@
       <option name="INPUT_FILE" value="" />
       <method v="2" />
     </configuration>
-    <configuration name="wordpress_post (1)" type="PythonConfigurationType" factoryName="Python" temporary="true">
-      <module name="WeiboSpider" />
-      <option name="INTERPRETER_OPTIONS" value="" />
-      <option name="PARENT_ENVS" value="true" />
-      <envs>
-        <env name="PYTHONUNBUFFERED" value="1" />
-      </envs>
-      <option name="SDK_HOME" value="" />
-      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$/sina/operation" />
-      <option name="IS_MODULE_SDK" value="true" />
-      <option name="ADD_CONTENT_ROOTS" value="true" />
-      <option name="ADD_SOURCE_ROOTS" value="true" />
-      <EXTENSION ID="PythonCoverageRunConfigurationExtension" runner="coverage.py" />
-      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/sina/operation/wordpress_post.py" />
-      <option name="PARAMETERS" value="" />
-      <option name="SHOW_COMMAND_LINE" value="false" />
-      <option name="EMULATE_TERMINAL" value="false" />
-      <option name="MODULE_MODE" value="false" />
-      <option name="REDIRECT_INPUT" value="false" />
-      <option name="INPUT_FILE" value="" />
-      <method v="2" />
-    </configuration>
     <recent_temporary>
       <list>
+        <item itemvalue="Python.crawl" />
         <item itemvalue="Python.weibo_spider" />
         <item itemvalue="Python.mongo_to_mysql" />
         <item itemvalue="Python.scrap_info_operation" />
         <item itemvalue="Python.dataset_operation" />
-        <item itemvalue="Python.wordpress_post (1)" />
       </list>
     </recent_temporary>
   </component>
@@ -448,6 +409,8 @@
       <workItem from="1551792845234" duration="660000" />
       <workItem from="1551799089108" duration="1634000" />
       <workItem from="1551828128024" duration="496000" />
+      <workItem from="1551879335617" duration="1247000" />
+      <workItem from="1551976266197" duration="1717000" />
     </task>
     <task id="LOCAL-00001" summary="Add Column">
       <created>1550941611168</created>
@@ -551,7 +514,7 @@
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="100281000" />
+    <option name="totallyTimeSpent" value="103245000" />
   </component>
   <component name="TodoView">
     <todo-panel id="selected-file">
@@ -563,16 +526,16 @@
     </todo-panel>
   </component>
   <component name="ToolWindowManager">
-    <frame x="-7" y="-7" width="2575" height="1415" extended-state="6" />
+    <frame x="341" y="0" width="2225" height="1407" extended-state="0" />
     <editor active="true" />
     <layout>
-      <window_info active="true" content_ui="combo" id="Project" order="0" sideWeight="0.49856323" visible="true" weight="0.12175649" />
+      <window_info content_ui="combo" id="Project" order="0" sideWeight="0.49856323" visible="true" weight="0.14106728" />
       <window_info id="Structure" order="1" sideWeight="0.50143677" side_tool="true" weight="0.12141393" />
       <window_info id="Favorites" order="2" sideWeight="0.50060606" side_tool="true" weight="0.13552362" />
       <window_info id="DB Browser" order="3" />
       <window_info anchor="bottom" id="Message" order="0" />
       <window_info anchor="bottom" id="Find" order="1" sideWeight="0.49980024" weight="0.32927817" />
-      <window_info anchor="bottom" id="Run" order="2" sideWeight="0.49280742" weight="0.32217574" />
+      <window_info active="true" anchor="bottom" id="Run" order="2" sideWeight="0.49280742" visible="true" weight="0.32707992" />
       <window_info anchor="bottom" id="Debug" order="3" sideWeight="0.49358177" weight="0.4167364" />
       <window_info anchor="bottom" id="Cvs" order="4" weight="0.25" />
       <window_info anchor="bottom" id="Inspection" order="5" weight="0.4" />
@@ -580,7 +543,7 @@
       <window_info anchor="bottom" id="Docker" order="7" show_stripe_button="false" />
       <window_info anchor="bottom" id="Version Control" order="8" sideWeight="0.4958932" weight="0.23419774" />
       <window_info anchor="bottom" id="Database Changes" order="9" />
-      <window_info anchor="bottom" id="Terminal" order="10" sideWeight="0.59211135" visible="true" weight="0.53808755" />
+      <window_info anchor="bottom" id="Terminal" order="10" sideWeight="0.59211135" weight="0.32171798" />
       <window_info anchor="bottom" id="Event Log" order="11" sideWeight="0.5064182" side_tool="true" weight="0.41708544" />
       <window_info anchor="bottom" id="Python Console" order="12" weight="0.32925835" />
       <window_info anchor="bottom" id="Database Console" order="13" sideWeight="0.49979296" weight="0.4363484" />
@@ -592,9 +555,9 @@
       <window_info anchor="right" content_ui="combo" id="Hierarchy" order="2" weight="0.25" />
       <window_info anchor="right" id="Json Parser" order="3" weight="0.32998493" />
       <window_info anchor="right" id="SciView" order="4" />
-      <window_info anchor="right" id="Mongo Explorer" order="5" visible="true" weight="0.1500998" />
-      <window_info anchor="right" id="Database" order="6" weight="0.1505032" />
-      <window_info anchor="right" id="Google Cloud Storage" order="7" weight="0.32960662" />
+      <window_info anchor="right" id="Mongo Explorer" order="5" weight="0.1237525" />
+      <window_info anchor="right" id="Database" order="6" weight="0.14211577" />
+      <window_info anchor="right" id="Google Cloud Storage" order="7" weight="0.32934132" />
     </layout>
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -752,13 +715,6 @@
     </entry>
     <entry file="das://87773894-fb30-4500-aff6-2f298bcf7d77/schema/scrapinfo/table/scrap_info" />
     <entry file="das://cc6ff9a0-e006-4d05-8628-a99de2eef333/schema/chouxiang/table/cx_posts" />
-    <entry file="file://$PROJECT_DIR$/sina/items.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="200">
-          <caret line="10" column="14" selection-start-line="10" selection-start-column="4" selection-end-line="10" selection-end-column="14" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/sina/operation/scrap_info_operation.py">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="1360">
@@ -766,6 +722,18 @@
           <folding>
             <element signature="e#0#14#0" expanded="true" />
           </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="das://87773894-fb30-4500-aff6-2f298bcf7d77/schema/scrapinfo/table/post_info" />
+    <entry file="file://$PROJECT_DIR$/Instagram-Crawler/utils/browser.py" />
+    <entry file="file://$PROJECT_DIR$/Instagram-Crawler/.gitignore" />
+    <entry file="file://$PROJECT_DIR$/Instagram-Crawler/README.md" />
+    <entry file="file://$PROJECT_DIR$/Instagram-Crawler/requirements.txt" />
+    <entry file="file://$PROJECT_DIR$/sina/items.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="200">
+          <caret line="10" column="14" selection-start-line="10" selection-start-column="4" selection-end-line="10" selection-end-column="14" />
         </state>
       </provider>
     </entry>
@@ -799,25 +767,10 @@
         </state>
       </provider>
     </entry>
-    <entry file="das://87773894-fb30-4500-aff6-2f298bcf7d77/schema/scrapinfo/table/post_info" />
-    <entry file="file://$PROJECT_DIR$/Instagram-Crawler/utils/browser.py" />
-    <entry file="file://$PROJECT_DIR$/Instagram-Crawler/.gitignore" />
-    <entry file="file://$PROJECT_DIR$/Instagram-Crawler/README.md" />
-    <entry file="file://$PROJECT_DIR$/sina/spiders/weibo_spider.py">
+    <entry file="file://$PROJECT_DIR$/.gitignore">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="214">
-          <caret line="277" column="17" selection-start-line="277" selection-start-column="17" selection-end-line="277" selection-end-column="17" />
-          <folding>
-            <element signature="e#40#49#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/Instagram-Crawler/requirements.txt" />
-    <entry file="file://$PROJECT_DIR$/sina/settings.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="580">
-          <caret line="29" column="1" selection-start-line="29" selection-start-column="1" selection-end-line="29" selection-end-column="1" />
+        <state relative-caret-position="100">
+          <caret line="5" column="5" selection-start-line="5" selection-start-column="5" selection-end-line="5" selection-end-column="5" />
         </state>
       </provider>
     </entry>
@@ -828,10 +781,33 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/.gitignore">
+    <entry file="file://$PROJECT_DIR$/sina/settings.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="100">
-          <caret line="5" column="5" selection-start-line="5" selection-start-column="5" selection-end-line="5" selection-end-column="5" />
+        <state relative-caret-position="580">
+          <caret line="29" column="1" selection-start-line="29" selection-start-column="1" selection-end-line="29" selection-end-column="1" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/sina/spiders/weibo_spider.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="240">
+          <caret line="27" selection-start-line="27" selection-end-line="27" />
+          <folding>
+            <element signature="e#40#49#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/inscrawler/driver/.gitignore">
+      <provider selected="true" editor-type-id="text-editor" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/inscrawler/crawl.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="571">
+          <caret line="226" lean-forward="true" selection-start-line="226" selection-end-line="226" />
+          <folding>
+            <element signature="e#0#11#0" expanded="true" />
+          </folding>
         </state>
       </provider>
     </entry>

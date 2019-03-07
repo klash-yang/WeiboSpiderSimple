@@ -203,4 +203,26 @@ def main():
         runCrawl(limitNum=limitNum, queryList=queryList, is_all_comments=is_all_comments)
 
 
-main()
+def scrap():
+    hasChromeDriver = False
+    for i in os.listdir("./driver"):
+        if "chromedriver" in i:
+            hasChromeDriver = True
+            break
+    if not hasChromeDriver:
+        print("ERROR! NO 'chromedriver' Found")
+        print("Please install chromedriver at https://sites.google.com/a/chromium.org/chromedriver/")
+        return
+    limitNum = int(20)
+    query = 'edcee3000'
+    is_all_comments = True
+    if not query:
+        print('Please input query!')
+    else:
+        queryList = query.replace(" ", "").split(",")
+        runCrawl(limitNum=limitNum, queryList=queryList, is_all_comments=is_all_comments)
+
+
+scrap()
+
+# main()
