@@ -4,6 +4,8 @@ import requests
 from inscrawler.utils.browser import Browser
 from docopt import docopt
 from tqdm import tqdm
+import inscrawler.utils.mongodb_operation as mongodb_operation
+import re
 
 
 def downloadImage(imageUrl, imagePath):
@@ -86,7 +88,9 @@ def extractCommentsMessage(data):
             for i in range(len(sp)):
                 if i > 1:
                     name = sp[i].split(">")[1].split("<")[0]
-                    message = sp[i].split(">")[4].split("<")[0]
+                    # message = sp[i].split(">")[4].split("<")[0]
+                    message = re.findall(r"<span>(.*)</span>", sp[i])[0]
+                    message = re.sub(u"<.*?>", "", message)
                     results.append(name + ": " + message)
     except Exception as e:
         pass
@@ -112,6 +116,8 @@ def extractCaption(data):
 
 def runCrawl(limitNum=0, queryList=[], is_all_comments=False):
     browser = Browser("driver/chromedriver")
+    db = mongodb_operation.get_mongo_db()
+    table = db['ins']
     for query in queryList:
         browser.clearLink()
         makeDir("data")
@@ -139,6 +145,15 @@ def runCrawl(limitNum=0, queryList=[], is_all_comments=False):
             cur = browser.getPageSource()
             writeToFile("data/" + query + "/" + dirName + "/raw.html", [cur])
             infoData = cur.split("<meta content=")[1].split(" ")
+            data_raw = cur.split("<meta content=")[1]
+            title = re.findall(r"(.*) name=\"description\"", data_raw)[0]
+            title = re.findall(r": “(.*)”\"", title)[0]
+
+            # download image
+            imageUrl = cur.split('meta property="og:image" content="')[1].split('"')[0]
+            store_path = "data/" + query + "/" + dirName + "/image.jpg"
+            downloadImage(imageUrl, store_path)
+
             # extract data
             lang = extractLang(cur)
             likes = extractLikes(infoData, lang)
@@ -148,19 +163,30 @@ def runCrawl(limitNum=0, queryList=[], is_all_comments=False):
             commentMessages = extractCommentsMessage(cur)
             # print("likes:",likes," comments:", comments," caption:", caption, 
             #     "commentMessages:", commentMessages, "dateTime:", dateTime)
-            writeToFile(
-                "data/" + query + "/" + dirName + "/info.txt",
-                [
-                    "likes: ", likes, "",
-                    "comments: ", comments, "",
-                    "caption: ", caption, "",
-                    "commentMessages: ", commentMessages, "",
-                    "dateTime: ", dateTime, ""
-                ]
-            )
-            # download image
-            imageUrl = cur.split('meta property="og:image" content="')[1].split('"')[0]
-            downloadImage(imageUrl, "data/" + query + "/" + dirName + "/image.jpg")
+
+            table.insert_one({
+                "author": query,
+                "ins_id": dirName,
+                "title": title,
+                "likes": likes,
+                "comments": comments,
+                "caption": caption,
+                "commentMessages": commentMessages,
+                "pic_path": store_path,
+                "dateTime": dateTime
+            })
+
+            # writeToFile(
+            #     "data/" + query + "/" + dirName + "/info.txt",
+            #     [
+            #         "likes: ", likes, "",
+            #         "comments: ", comments, "",
+            #         "caption: ", caption, "",
+            #         "commentMessages: ", commentMessages, "",
+            #         "dateTime: ", dateTime, ""
+            #     ]
+            # )
+
             time.sleep(1)
         print("query " + query + " collecting finish")
 
