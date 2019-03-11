@@ -10,4 +10,3 @@ python-wordpress-xmlrpc
 requests==2.20.0
 docopt==0.6.2
 tqdm==4.23.4
-pymssql

@@ -5,6 +5,7 @@ from inscrawler.utils.browser import Browser
 from docopt import docopt
 from tqdm import tqdm
 import inscrawler.utils.mongodb_operation as mongodb_operation
+import uuid
 import re
 
 
@@ -114,7 +115,7 @@ def extractCaption(data):
     return result
 
 
-def runCrawl(limitNum=0, queryList=[], is_all_comments=False):
+def runCrawl(limitNum=0, queryList=[], is_all_comments=False, dataset_id=str(uuid.uuid1())):
     browser = Browser("driver/chromedriver")
     db = mongodb_operation.get_mongo_db()
     table = db['ins']
@@ -166,6 +167,8 @@ def runCrawl(limitNum=0, queryList=[], is_all_comments=False):
 
             table.insert_one({
                 "author": query,
+                "dataset_id": dataset_id,
+                "pic_location": store_path,
                 "ins_id": dirName,
                 "title": title,
                 "likes": likes,
@@ -231,6 +234,7 @@ def main():
 
 def scrap():
     hasChromeDriver = False
+    dataset_id = str(uuid.uuid1())
     for i in os.listdir("./driver"):
         if "chromedriver" in i:
             hasChromeDriver = True
@@ -246,7 +250,7 @@ def scrap():
         print('Please input query!')
     else:
         queryList = query.replace(" ", "").split(",")
-        runCrawl(limitNum=limitNum, queryList=queryList, is_all_comments=is_all_comments)
+        runCrawl(limitNum=limitNum, queryList=queryList, is_all_comments=is_all_comments, dataset_id=dataset_id)
 
 
 scrap()

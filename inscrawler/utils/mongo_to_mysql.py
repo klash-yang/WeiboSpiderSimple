@@ -1,4 +1,4 @@
-import inscrawler.utils.wordpress_post as wordpress_post
+import sina.operation.wordpress_post as wordpress_post
 import sina.operation.scrap_info_operation as scrap_info_operation
 import sina.operation.mongodb_operation as mongodb_operation
 
