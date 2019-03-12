@@ -18,7 +18,7 @@ def close_mysql(cursor, conn):
 def insert_dataset(dataset_id, category, project):
     conn = mysql_con()
     cursor = conn.cursor()
-    sentence = "insert into dataset_info(id, dataset_id, category, project, create_time) " \
+    sentence = "insert into scrapinfo.dataset_info(id, dataset_id, category, project, create_time) " \
                "VALUES (uuid(), '%(dataset_id)s', '%(category)s', '%(project)s', now())" \
                % {
                    'dataset_id': dataset_id,
@@ -30,20 +30,25 @@ def insert_dataset(dataset_id, category, project):
     close_mysql(cursor, conn)
 
 
-def get_latest_dataset_id():
+def get_latest_dataset_id(category, project):
     conn = mysql_con()
     cursor = conn.cursor()
-    sentence = "SELECT dataset_id from scrapinfo.scrap_info order by create_time desc limit 1"
+    sentence = "SELECT dataset_id from scrapinfo.dataset_info " \
+               "where category = '%(category)s' and project = '%(project)s' order by create_time desc limit 1" \
+               % {
+                   'category': category,
+                   'project': project
+               }
     cursor.execute(sentence)
     result = cursor.fetchone()
     close_mysql(cursor, conn)
     return str(result[0])
 
 
-def get_second_latest_dataset_id():
+def get_second_latest_dataset_id(category, project):
     conn = mysql_con()
     cursor = conn.cursor()
-    sentence = "SELECT dataset_id from scrapinfo.scrap_info order by create_time desc limit 2"
+    sentence = "SELECT dataset_id from scrapinfo.dataset_info order by create_time desc limit 2"
     cursor.execute(sentence)
     result = cursor.fetchall()
     close_mysql(cursor, conn)
