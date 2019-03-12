@@ -9,23 +9,23 @@ def mysql_con():
     return conn
 
 
-def insert_sentence(dataset_id):
-    sql = "INSERT INTO scrapinfo.scrap_info(id, dataset_id, create_time) VALUES (UUID(), '%s', now())" % (
-        str(dataset_id))
-    return sql
-
-
 def close_mysql(cursor, conn):
     conn.commit()
     cursor.close()
     conn.close()
 
 
-def insert_dataset(dataset_id):
+def insert_dataset(dataset_id, category, project):
     conn = mysql_con()
     cursor = conn.cursor()
-    c = insert_sentence(dataset_id)
-    effect_row = cursor.execute(c)
+    sentence = "insert into dataset_info(id, dataset_id, category, project, create_time) " \
+               "VALUES (uuid(), '%(dataset_id)s', '%(category)s', '%(project)s', now())" \
+               % {
+                   'dataset_id': dataset_id,
+                   'category': category,
+                   'project': project
+               }
+    effect_row = cursor.execute(sentence)
     print('Insert ' + str(effect_row) + ' rows')
     close_mysql(cursor, conn)
 

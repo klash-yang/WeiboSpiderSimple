@@ -7,6 +7,7 @@ from tqdm import tqdm
 import inscrawler.utils.mongodb_operation as mongodb_operation
 import uuid
 import re
+import inscrawler.utils.scrap_info_operation as scrap_info_operation
 
 
 def downloadImage(imageUrl, imagePath):
@@ -246,6 +247,7 @@ def scrap():
     limitNum = int(20)
     query = 'edcee3000'
     is_all_comments = True
+    scrap_info_operation.insert_dataset(dataset_id=dataset_id, category=query, project='Instagram')
     if not query:
         print('Please input query!')
     else:
