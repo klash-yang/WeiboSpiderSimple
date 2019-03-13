@@ -42,7 +42,7 @@ def post_picture(dataset_id, pic_ins_id, category):
     wp = get_wordpress_client()
 
     # set to the path to your file
-    filename = '../data/edcee3000/BukcjSJHGGY/image.jpg'
+    filename = '../data/edcee3000//image.jpg'
 
     # prepare metadata
     data = {
@@ -61,7 +61,7 @@ def post_picture(dataset_id, pic_ins_id, category):
     print(response)
 
 
-post_picture()
+post_picture('weqw')
 
 # {'attachment_id': '429', 'date_created_gmt': <DateTime '20190311T15:56:28' at 0x23c71092860>, 'parent': 0, 'link': 'https://www.onedaycp.com/wp-content/uploads/2019/03/picture-1.jpg', 'title': 'picture.jpg', 'caption': '', 'description': '', 'metadata': {'width': 1080, 'height': 1080, 'file': '2019/03/picture-1.jpg', 'sizes': {'thumbnail': {'file': 'picture-1-150x150.jpg', 'width': 150, 'height': 150, 'mime-type': 'image/jpeg'}, 'medium': {'file': 'picture-1-300x300.jpg', 'width': 300, 'height': 300, 'mime-type': 'image/jpeg'}, 'medium_large': {'file': 'picture-1-768x768.jpg', 'width': 768, 'height': 768, 'mime-type': 'image/jpeg'}, 'large': {'file': 'picture-1-1024x1024.jpg', 'width': 1024, 'height': 1024, 'mime-type': 'image/jpeg'}, 'twentyseventeen-thumbnail-avatar': {'file': 'picture-1-100x100.jpg', 'width': 100, 'height': 100, 'mime-type': 'image/jpeg'}}, 'image_meta': {'aperture': '0', 'credit': '', 'camera': '', 'caption': '', 'created_timestamp': '0', 'copyright': '', 'focal_length': '0', 'iso': '0', 'shutter_speed': '0', 'title': '', 'orientation': '0', 'keywords': []}}, 'type': 'image/jpeg', 'thumbnail': 'https://www.onedaycp.com/wp-content/uploads/2019/03/picture-1-150x150.jpg', 'id': '429', 'file': 'picture.jpg', 'url': 'https://www.onedaycp.com/wp-content/uploads/2019/03/picture-1.jpg'}
 

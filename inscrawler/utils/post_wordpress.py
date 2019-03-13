@@ -1,15 +1,24 @@
-import sina.operation.wordpress_post as wordpress_post
-import sina.operation.scrap_info_operation as scrap_info_operation
-import sina.operation.mongodb_operation as mongodb_operation
+import inscrawler.utils.wordpress_operation as wordpress_operation
+import inscrawler.utils.scrap_info_operation as scrap_info_operation
+import inscrawler.utils.mongodb_operation as mongodb_operation
 
 
 def transfer_to_mysql():
-    latest_dataset_id = scrap_info_operation.get_latest_dataset_id()
+    latest_dataset_id = scrap_info_operation.get_latest_dataset_id('edcee3000', 'Instagram')
     db = mongodb_operation.get_mongo_db()
-    tweets = db['Tweets'].find({"dataset_id": latest_dataset_id}).sort("created_at", -1)
-    for tweet in tweets:
-        tweet_url = tweet['weibo_url']
-        blogger_id = tweet['blogger_id']
+    records = db['ins'].find({"dataset_id": latest_dataset_id}).sort("dateTime", -1)
+    for record in records:
+        ins_id = records['ins_id']
+
+        content_list = ['<!-- wp:paragraph -->\n',
+                        '<!-- wp:image {"id":424} -->\n',
+                        '<figure class="wp-block-image"><img src="https://www.onedaycp.com/wp-content/uploads/2019/03/picture-819x1024.jpg" alt="" class="wp-image-424"/></figure>\n\n']
+
+
+
+
+
+        blogger_id = tweet['']
         blogger_info = list(db['Information'].find({"dataset_id": latest_dataset_id, "blogger_id": blogger_id}))[0]
         print(blogger_info)
         comments = db['Comments'].find({"dataset_id": latest_dataset_id, "weibo_url": tweet_url})
@@ -29,8 +38,8 @@ def transfer_to_mysql():
         categories.append(blogger_info['nick_name'])
         # categories = mat(categories)
         previous_post_ids = scrap_info_operation.get_post_ids(weibo_url=tweet_url)
-        wordpress_post.delete_wordpress(post_id_list=previous_post_ids)
-        post_id = wordpress_post.post_wordpress(title, content, 'publish', 'open', post_tags, categories)
+        wordpress_operation.delete_wordpress(post_id_list=previous_post_ids)
+        post_id = wordpress_operation.post_wordpress(title, content, 'publish', 'open', post_tags, categories)
         scrap_info_operation.insert_mapping_record(post_id, latest_dataset_id, tweet_url, blogger_info['nick_name'])
 
         # 假如之前存在多个此微博的postid,则全部删除了然后再插入新的
