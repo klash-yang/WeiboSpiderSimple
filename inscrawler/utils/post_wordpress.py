@@ -9,14 +9,14 @@ def transfer_to_mysql():
     records = db['ins'].find({"dataset_id": latest_dataset_id}).sort("dateTime", -1)
     for record in records:
         ins_id = records['ins_id']
+        sentence = "select * from scrapinfo.ins_pic_info where dataset_id = '%(latest_dataset_id)s'" \
+                   % {
+                       'latest_dataset_id': latest_dataset_id
 
+                   }
         content_list = ['<!-- wp:paragraph -->\n',
                         '<!-- wp:image {"id":424} -->\n',
                         '<figure class="wp-block-image"><img src="https://www.onedaycp.com/wp-content/uploads/2019/03/picture-819x1024.jpg" alt="" class="wp-image-424"/></figure>\n\n']
-
-
-
-
 
         blogger_id = tweet['']
         blogger_info = list(db['Information'].find({"dataset_id": latest_dataset_id, "blogger_id": blogger_id}))[0]
@@ -32,7 +32,7 @@ def transfer_to_mysql():
         content = ''.join(content_list)
         print(content)
         post_tags = []
-        categories = [] # 孙笑川
+        categories = []  # 孙笑川
         # categories.insert(1, blogger_info['nick_name'])
         print(blogger_info['nick_name'])
         categories.append(blogger_info['nick_name'])
@@ -43,7 +43,6 @@ def transfer_to_mysql():
         scrap_info_operation.insert_mapping_record(post_id, latest_dataset_id, tweet_url, blogger_info['nick_name'])
 
         # 假如之前存在多个此微博的postid,则全部删除了然后再插入新的
-
 
 # transfer_to_mysql()
 
