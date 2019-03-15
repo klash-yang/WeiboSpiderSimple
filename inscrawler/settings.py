@@ -1,5 +1,5 @@
 # MongoDb 配置
-LOCAL_MONGO_HOST = 'ec2-52-194-186-245.ap-northeast-1.compute.amazonaws.com'
+LOCAL_MONGO_HOST = 'ec2-34-201-36-45.compute-1.amazonaws.com'
 LOCAL_MONGO_PORT = 27017
 DB_NAME = 'Instagram'
 
