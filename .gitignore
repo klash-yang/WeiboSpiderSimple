@@ -3,7 +3,7 @@ captcha.png
 workspace.xml
 env
 venv
-.idea
+.idea/*
 /.idea/misc.xml
 /.idea/WeiboSpider.iml
 /.idea/workspace.xml
