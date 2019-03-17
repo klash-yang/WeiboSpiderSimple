@@ -38,11 +38,12 @@ def delete_wordpress(post_id_list):
     return total_count
 
 
-def post_picture(dataset_id, pic_ins_id, category):
+def post_picture(dataset_id, pic_loacation, pic_ins_id, category):
     wp = get_wordpress_client()
 
     # set to the path to your file
-    filename = '../data/edcee3000//image.jpg'
+    # filename = '../data/edcee3000//image.jpg'
+    filename = '../' + pic_loacation
 
     # prepare metadata
     data = {
@@ -54,14 +55,27 @@ def post_picture(dataset_id, pic_ins_id, category):
     with open(filename, 'rb') as img:
         data['bits'] = xmlrpc_client.Binary(img.read())
 
+    # TODO 删除这个图片的逻辑
+    # resp = DeletePost('430')
+    # print(resp)
+
+
+
+
     response = wp.call(media.UploadFile(data))
     pic_wp_id = response['attachment_id']
+    pic_wp_url = response['link']
+    # 先查询有没有存过这个照片，有的话就删了再存
+
+
+
     scrap_info_operation.insert_pic_record(pic_wp_id=pic_wp_id, pic_ins_id=pic_ins_id, dataset_id=dataset_id,
-                                           category=category)
-    print(response)
+                                           category=category, pic_wp_url=pic_wp_url)
+    return pic_wp_id
+    # print(response)
 
 
-post_picture('weqw')
+post_picture('270dd05e-48b7-11e9-b4c9-4c3275997092', 'data/edcee3000/BvHEfjRHL6e/image.jpg', 'BvHEfjRHL6e', 'edcee3000')
 
 # {'attachment_id': '429', 'date_created_gmt': <DateTime '20190311T15:56:28' at 0x23c71092860>, 'parent': 0, 'link': 'https://www.onedaycp.com/wp-content/uploads/2019/03/picture-1.jpg', 'title': 'picture.jpg', 'caption': '', 'description': '', 'metadata': {'width': 1080, 'height': 1080, 'file': '2019/03/picture-1.jpg', 'sizes': {'thumbnail': {'file': 'picture-1-150x150.jpg', 'width': 150, 'height': 150, 'mime-type': 'image/jpeg'}, 'medium': {'file': 'picture-1-300x300.jpg', 'width': 300, 'height': 300, 'mime-type': 'image/jpeg'}, 'medium_large': {'file': 'picture-1-768x768.jpg', 'width': 768, 'height': 768, 'mime-type': 'image/jpeg'}, 'large': {'file': 'picture-1-1024x1024.jpg', 'width': 1024, 'height': 1024, 'mime-type': 'image/jpeg'}, 'twentyseventeen-thumbnail-avatar': {'file': 'picture-1-100x100.jpg', 'width': 100, 'height': 100, 'mime-type': 'image/jpeg'}}, 'image_meta': {'aperture': '0', 'credit': '', 'camera': '', 'caption': '', 'created_timestamp': '0', 'copyright': '', 'focal_length': '0', 'iso': '0', 'shutter_speed': '0', 'title': '', 'orientation': '0', 'keywords': []}}, 'type': 'image/jpeg', 'thumbnail': 'https://www.onedaycp.com/wp-content/uploads/2019/03/picture-1-150x150.jpg', 'id': '429', 'file': 'picture.jpg', 'url': 'https://www.onedaycp.com/wp-content/uploads/2019/03/picture-1.jpg'}
 

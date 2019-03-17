@@ -4,18 +4,27 @@ import inscrawler.utils.mongodb_operation as mongodb_operation
 
 
 def transfer_to_mysql():
-    latest_dataset_id = scrap_info_operation.get_latest_dataset_id('edcee3000', 'Instagram')
+    # 假如需要异地开发，就把dataset_id换成需要的 '270dd05e-48b7-11e9-b4c9-4c3275997092'
+    # latest_dataset_id = scrap_info_operation.get_latest_dataset_id('edcee3000', 'Instagram')
+    latest_dataset_id = '270dd05e-48b7-11e9-b4c9-4c3275997092'
     db = mongodb_operation.get_mongo_db()
     records = db['ins'].find({"dataset_id": latest_dataset_id}).sort("dateTime", -1)
     for record in records:
-        ins_id = records['ins_id']
+        ins_id = record['ins_id']
+        pic_loacation = record['pic_loacation']
+        author = record['author']
+        pic_wp_id = wordpress_operation.post_picture(dataset_id=latest_dataset_id, pic_loacation=pic_loacation, pic_ins_id=ins_id, category=author)
         sentence = "select * from scrapinfo.ins_pic_info where dataset_id = '%(latest_dataset_id)s'" \
                    % {
                        'latest_dataset_id': latest_dataset_id
 
                    }
+        # content_list = ['<!-- wp:paragraph -->\n',
+        #                 '<!-- wp:image {"id":424} -->\n',
+        #                 '<figure class="wp-block-image"><img src="https://www.onedaycp.com/wp-content/uploads/2019/03/picture-819x1024.jpg" alt="" class="wp-image-424"/></figure>\n\n']
+
         content_list = ['<!-- wp:paragraph -->\n',
-                        '<!-- wp:image {"id":424} -->\n',
+                        '<!-- wp:image {"id":%{pic_wp_id}s} -->\n' % {pic_wp_id},
                         '<figure class="wp-block-image"><img src="https://www.onedaycp.com/wp-content/uploads/2019/03/picture-819x1024.jpg" alt="" class="wp-image-424"/></figure>\n\n']
 
         blogger_id = tweet['']
@@ -44,7 +53,7 @@ def transfer_to_mysql():
 
         # 假如之前存在多个此微博的postid,则全部删除了然后再插入新的
 
-# transfer_to_mysql()
+transfer_to_mysql()
 
 # items = table.find()
 # content = []
