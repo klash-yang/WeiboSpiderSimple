@@ -61,7 +61,7 @@ def post_picture(dataset_id, pic_loacation, pic_ins_id, category):
 
 
 
-
+    # media.UploadFile()
     response = wp.call(media.UploadFile(data))
     pic_wp_id = response['attachment_id']
     pic_wp_url = response['link']
