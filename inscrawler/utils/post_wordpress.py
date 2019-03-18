@@ -23,6 +23,11 @@ def transfer_to_mysql():
         #                 '<!-- wp:image {"id":424} -->\n',
         #                 '<figure class="wp-block-image"><img src="https://www.onedaycp.com/wp-content/uploads/2019/03/picture-819x1024.jpg" alt="" class="wp-image-424"/></figure>\n\n']
 
+        # < !-- wp: image -->
+        # < figure class ="wp-block-image" > < img src="https://i.loli.net/2019/03/18/5c8fbaefc6f34.jpg" alt="" / > < / figure >
+        # < !-- / wp: image -->
+
+
         content_list = ['<!-- wp:paragraph -->\n',
                         '<!-- wp:image {"id":%{pic_wp_id}s} -->\n' % {pic_wp_id},
                         '<figure class="wp-block-image"><img src="https://www.onedaycp.com/wp-content/uploads/2019/03/picture-819x1024.jpg" alt="" class="wp-image-424"/></figure>\n\n']
