@@ -16,8 +16,7 @@ def transfer_to_mysql():
         pic_bed_url = wordpress_operation.post_picture(dataset_id=latest_dataset_id, pic_loacation=pic_loacation,
                                                        pic_ins_id=ins_id, category=author)
 
-        scrap_info_operation.insert_pic_record(pic_wp_id="", pic_ins_id=ins_id, dataset_id=latest_dataset_id,
-                                               category=author, pic_wp_url=pic_bed_url)
+
 
         content_list = ['< !-- wp:image -->\n',
                         '< figure class ="wp-block-image" > < img src="%{pic_bed_url}s}" alt="" / > < / figure >\n' % {

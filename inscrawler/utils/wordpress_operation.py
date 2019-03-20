@@ -4,6 +4,7 @@ from inscrawler.settings import WORDPRESS_ADDRESS, WORDPRESS_ADMIN_NAME, WORDPRE
 import inscrawler.utils.scrap_info_operation as scrap_info_operation
 import inscrawler.utils.picture_operation as picture_operation
 
+
 def get_wordpress_client():
     return Client(WORDPRESS_ADDRESS + 'xmlrpc.php', WORDPRESS_ADMIN_NAME, WORDPRESS_ADMIN_PASSWORD)
 
@@ -39,7 +40,7 @@ def post_picture(dataset_id, pic_loacation, pic_ins_id, category):
 
     pic_bed_url = picture_operation.upload_picture(pic_loacation)
 
-    scrap_info_operation.insert_pic_record(pic_wp_id="", pic_ins_id=pic_ins_id, dataset_id=dataset_id,
+    scrap_info_operation.insert_pic_record(pic_ins_id=pic_ins_id, dataset_id=dataset_id,
                                            category=category, pic_wp_url=pic_bed_url)
     return pic_bed_url
     # print(response)
