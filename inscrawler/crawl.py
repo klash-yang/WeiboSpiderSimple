@@ -180,17 +180,6 @@ def runCrawl(limitNum=0, queryList=[], is_all_comments=False, dataset_id=str(uui
                 "dateTime": dateTime
             })
 
-            # writeToFile(
-            #     "data/" + query + "/" + dirName + "/info.txt",
-            #     [
-            #         "likes: ", likes, "",
-            #         "comments: ", comments, "",
-            #         "caption: ", caption, "",
-            #         "commentMessages: ", commentMessages, "",
-            #         "dateTime: ", dateTime, ""
-            #     ]
-            # )
-
             time.sleep(1)
         print("query " + query + " collecting finish")
 

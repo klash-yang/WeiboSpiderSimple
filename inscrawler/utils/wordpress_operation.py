@@ -1,12 +1,8 @@
 from wordpress_xmlrpc import Client, WordPressPost, WordPressTerm
 from wordpress_xmlrpc.methods.posts import GetPosts, NewPost, DeletePost
-from wordpress_xmlrpc.methods.users import GetUserInfo
-from wordpress_xmlrpc.methods import taxonomies, media, posts
-from wordpress_xmlrpc.compat import xmlrpc_client
-import csv
 from inscrawler.settings import WORDPRESS_ADDRESS, WORDPRESS_ADMIN_NAME, WORDPRESS_ADMIN_PASSWORD
 import inscrawler.utils.scrap_info_operation as scrap_info_operation
-import inscrawler.utils.picture_operation
+import inscrawler.utils.picture_operation as picture_operation
 
 def get_wordpress_client():
     return Client(WORDPRESS_ADDRESS + 'xmlrpc.php', WORDPRESS_ADMIN_NAME, WORDPRESS_ADMIN_PASSWORD)
@@ -39,60 +35,11 @@ def delete_wordpress(post_id_list):
 
 
 def post_picture(dataset_id, pic_loacation, pic_ins_id, category):
-    wp = get_wordpress_client()
-
-    # set to the path to your file
-    # filename = '../data/edcee3000//image.jpg'
-    # filename = '../' + pic_loacation
-
-    # prepare metadata
-    # data = {
-    #     'name': 'picture.jpg',
-    #     'type': 'image/jpeg',  # mimetype
-    # }
-
-    # read the binary file and let the XMLRPC library encode it into base64
-    # with open(filename, 'rb') as img:
-    #     data['bits'] = xmlrpc_client.Binary(img.read())
-
     # TODO 删除这个图片的逻辑
 
-    pic_bed_url = post_picture(pic_loacation)
+    pic_bed_url = picture_operation.upload_picture(pic_loacation)
 
-    scrap_info_operation.insert_pic_record(pic_wp_id=None, pic_ins_id=pic_ins_id, dataset_id=dataset_id,
+    scrap_info_operation.insert_pic_record(pic_wp_id="", pic_ins_id=pic_ins_id, dataset_id=dataset_id,
                                            category=category, pic_wp_url=pic_bed_url)
     return pic_bed_url
     # print(response)
-
-
-# post_picture('270dd05e-48b7-11e9-b4c9-4c3275997092', 'data/edcee3000/BvHEfjRHL6e/image.jpg', 'BvHEfjRHL6e', 'edcee3000')
-
-# {'attachment_id': '429', 'date_created_gmt': <DateTime '20190311T15:56:28' at 0x23c71092860>, 'parent': 0, 'link': 'https://www.onedaycp.com/wp-content/uploads/2019/03/picture-1.jpg', 'title': 'picture.jpg', 'caption': '', 'description': '', 'metadata': {'width': 1080, 'height': 1080, 'file': '2019/03/picture-1.jpg', 'sizes': {'thumbnail': {'file': 'picture-1-150x150.jpg', 'width': 150, 'height': 150, 'mime-type': 'image/jpeg'}, 'medium': {'file': 'picture-1-300x300.jpg', 'width': 300, 'height': 300, 'mime-type': 'image/jpeg'}, 'medium_large': {'file': 'picture-1-768x768.jpg', 'width': 768, 'height': 768, 'mime-type': 'image/jpeg'}, 'large': {'file': 'picture-1-1024x1024.jpg', 'width': 1024, 'height': 1024, 'mime-type': 'image/jpeg'}, 'twentyseventeen-thumbnail-avatar': {'file': 'picture-1-100x100.jpg', 'width': 100, 'height': 100, 'mime-type': 'image/jpeg'}}, 'image_meta': {'aperture': '0', 'credit': '', 'camera': '', 'caption': '', 'created_timestamp': '0', 'copyright': '', 'focal_length': '0', 'iso': '0', 'shutter_speed': '0', 'title': '', 'orientation': '0', 'keywords': []}}, 'type': 'image/jpeg', 'thumbnail': 'https://www.onedaycp.com/wp-content/uploads/2019/03/picture-1-150x150.jpg', 'id': '429', 'file': 'picture.jpg', 'url': 'https://www.onedaycp.com/wp-content/uploads/2019/03/picture-1.jpg'}
-
-
-# content_list = ['<!-- wp:paragraph -->\n', '<p>评论:</p>\n', '<!-- /wp:paragraph -->\n\n']
-# content_list.append('<!-- wp:paragraph -->\n')
-# content_list.append('<p>测试图片</p>\n')
-# content_list.append('<!-- /wp:paragraph -->\n\n')
-# content_list.append('<!-- wp:image {"id":424} -->\n')
-# content_list.append('<figure class="wp-block-image"><img src="https://www.onedaycp.com/wp-content/uploads/2019/03/picture-819x1024.jpg" alt="" class="wp-image-424"/></figure>\n')
-# content_list.append('<!-- /wp:image -->\n\n')
-# content = ''.join(content_list)
-#
-#
-# post_wordpress('Test title', content, 'publish', ['test'], [], ['Introductions'])
-
-# wp = Client(WORDPRESS_ADDRESS + 'xmlrpc.php', 'poloyc', 'Suckerlove5')
-#
-# post = WordPressPost()
-# post.title = 'My new title'
-# post.content = 'This is the body of my new post.'
-# post.post_status = 'publish'
-# post.terms_names = {
-#   'post_tag': ['test', 'firstpost'],
-#   'category': ['Introductions', 'Tests']
-# }
-#
-# wp.call(NewPost(post))
-
-# https://my.oschina.net/ranvane/blog/390684

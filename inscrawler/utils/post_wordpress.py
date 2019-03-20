@@ -11,7 +11,7 @@ def transfer_to_mysql():
     records = db['ins'].find({"dataset_id": latest_dataset_id}).sort("dateTime", -1)
     for record in records:
         ins_id = record['ins_id']
-        pic_loacation = record['pic_loacation']
+        pic_loacation = record['pic_location']
         author = record['author']
         pic_bed_url = wordpress_operation.post_picture(dataset_id=latest_dataset_id, pic_loacation=pic_loacation,
                                                        pic_ins_id=ins_id, category=author)
