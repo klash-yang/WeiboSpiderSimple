@@ -1,5 +1,5 @@
 import pymysql
-from sina.settings import SCRAP_MYSQL_HOST, SCRAP_MYSQL_USER, SCRAP_MYSQL_PWD, SCRAP_MYSQL_DB
+from inscrawler.settings import SCRAP_MYSQL_HOST, SCRAP_MYSQL_USER, SCRAP_MYSQL_PWD, SCRAP_MYSQL_DB
 
 
 def mysql_con():
@@ -45,26 +45,13 @@ def get_latest_dataset_id(category, project):
     return str(result[0])
 
 
-def get_second_latest_dataset_id(category, project):
+def get_previous_post_ids(this_dataset, title_id):
     conn = mysql_con()
     cursor = conn.cursor()
-    sentence = "SELECT dataset_id from scrapinfo.dataset_info order by create_time desc limit 2"
-    cursor.execute(sentence)
-    result = cursor.fetchall()
-    close_mysql(cursor, conn)
-    if result.__len__() == 0:
-        return None
-    else:
-        return str(result[0])
-
-
-def get_previous_post_ids(this_dataset, weibo_url):
-    conn = mysql_con()
-    cursor = conn.cursor()
-    sentence = "SELECT post_id from scrapinfo.post_info where weibo_url = '%(weibo_url)s' and dataset_id != '%(dataset_id)s' order by create_time desc " \
+    sentence = "SELECT post_id from scrapinfo.post_info where title_id = '%(title_id)s' and dataset_id != '%(dataset_id)s' order by create_time desc " \
                % {
                    'dataset_id': this_dataset,
-                   'weibo_url': weibo_url,
+                   'title_id': title_id,
                }
     cursor.execute(sentence)
     result = list(cursor.fetchall())
@@ -72,12 +59,12 @@ def get_previous_post_ids(this_dataset, weibo_url):
     return result
 
 
-def get_post_ids(weibo_url):
+def get_post_ids(title_id):
     conn = mysql_con()
     cursor = conn.cursor()
-    sentence = "SELECT post_id from scrapinfo.post_info where weibo_url = '%(weibo_url)s'" \
+    sentence = "SELECT post_id from scrapinfo.post_info where title_id = '%(title_id)s'" \
                % {
-                   'weibo_url': weibo_url,
+                   'title_id': title_id,
                }
     cursor.execute(sentence)
     result = list(cursor.fetchall())
@@ -85,12 +72,12 @@ def get_post_ids(weibo_url):
     return result
 
 
-def insert_mapping_record(post_id, dataset_id, weibo_url, category, pic_wp_url):
+def insert_mapping_record(post_id, dataset_id, title_id, category):
     conn = mysql_con()
     cursor = conn.cursor()
-    sentence = "INSERT INTO scrapinfo.post_info(id, post_id, dataset_id, weibo_url, category, create_time) " \
+    sentence = "INSERT INTO scrapinfo.post_info(id, post_id, dataset_id, title_id, category, create_time) " \
                "VALUES (UUID(), '%(post_id)s', '%(dataset_id)s', '%(weibo_url)s', '%(category)s', now())" % {
-                   'post_id': post_id, 'dataset_id': dataset_id, 'weibo_url': weibo_url,
+                   'post_id': post_id, 'dataset_id': dataset_id, 'title_id': title_id,
                    'category': category
                }
     effect_row = cursor.execute(sentence)
@@ -122,5 +109,3 @@ def check_pic_info(pic_ins_id):
     result = list(cursor.fetchall())
     close_mysql(cursor, conn)
     return result
-# print(get_second_latest_dataset_id())
-# print(get_latest_dataset_id())

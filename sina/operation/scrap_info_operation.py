@@ -56,7 +56,7 @@ def get_second_latest_dataset_id():
 def get_previous_post_ids(this_dataset, weibo_url):
     conn = mysql_con()
     cursor = conn.cursor()
-    sentence = "SELECT post_id from scrapinfo.post_info where weibo_url = '%(weibo_url)s' and dataset_id != '%(dataset_id)s' order by create_time desc " \
+    sentence = "SELECT post_id from scrapinfo.post_info where title_id = '%(weibo_url)s' and dataset_id != '%(dataset_id)s' order by create_time desc " \
                % {
                    'dataset_id': this_dataset,
                    'weibo_url': weibo_url,
@@ -70,7 +70,7 @@ def get_previous_post_ids(this_dataset, weibo_url):
 def get_post_ids(weibo_url):
     conn = mysql_con()
     cursor = conn.cursor()
-    sentence = "SELECT post_id from scrapinfo.post_info where weibo_url = '%(weibo_url)s'" \
+    sentence = "SELECT post_id from scrapinfo.post_info where title_id = '%(weibo_url)s'" \
                % {
                    'weibo_url': weibo_url,
                }
@@ -83,7 +83,7 @@ def get_post_ids(weibo_url):
 def insert_mapping_record(post_id, dataset_id, weibo_url, category):
     conn = mysql_con()
     cursor = conn.cursor()
-    sentence = "INSERT INTO scrapinfo.post_info(id, post_id, dataset_id, weibo_url, category, create_time) " \
+    sentence = "INSERT INTO scrapinfo.post_info(id, post_id, dataset_id, title_id, category, create_time) " \
                "VALUES (UUID(), '%(post_id)s', '%(dataset_id)s', '%(weibo_url)s', '%(category)s', now())" % {
                    'post_id': post_id, 'dataset_id': dataset_id, 'weibo_url': weibo_url,
                    'category': category

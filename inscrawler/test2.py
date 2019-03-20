@@ -6,7 +6,8 @@ import json
 url = 'https://apis.yum6.cn/api/5bd44dc94bcfc?token=f07b711396f9a05bc7129c4507fb65c5'
 
 
-file = open('./data/edcee3000/Bu_N2oRnLtg/image.jpg', 'rb')
+# file = open('./data/edcee3000/Bu_N2oRnLtg/image.jpg', 'rb')
+file = open('./data/pic5.jpg', 'rb')
 # file_params = {'file': ('pic.jpg', file, 'image/jpeg')}
 file_params = {'file': ('pic.jpg', file, 'image/jpeg')}
 
@@ -23,3 +24,5 @@ r = requests.post(
 
 a = json.loads(r.content)
 print(a['data']['url'])
+
+

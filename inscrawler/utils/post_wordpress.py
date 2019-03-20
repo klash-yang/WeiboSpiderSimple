@@ -13,49 +13,38 @@ def transfer_to_mysql():
         ins_id = record['ins_id']
         pic_loacation = record['pic_loacation']
         author = record['author']
-        pic_wp_id = wordpress_operation.post_picture(dataset_id=latest_dataset_id, pic_loacation=pic_loacation, pic_ins_id=ins_id, category=author)
-        sentence = "select * from scrapinfo.ins_pic_info where dataset_id = '%(latest_dataset_id)s'" \
-                   % {
-                       'latest_dataset_id': latest_dataset_id
+        pic_bed_url = wordpress_operation.post_picture(dataset_id=latest_dataset_id, pic_loacation=pic_loacation,
+                                                       pic_ins_id=ins_id, category=author)
 
-                   }
-        # content_list = ['<!-- wp:paragraph -->\n',
-        #                 '<!-- wp:image {"id":424} -->\n',
-        #                 '<figure class="wp-block-image"><img src="https://www.onedaycp.com/wp-content/uploads/2019/03/picture-819x1024.jpg" alt="" class="wp-image-424"/></figure>\n\n']
+        scrap_info_operation.insert_pic_record(pic_wp_id="", pic_ins_id=ins_id, dataset_id=latest_dataset_id,
+                                               category=author, pic_wp_url=pic_bed_url)
 
-        # < !-- wp: image -->
-        # < figure class ="wp-block-image" > < img src="https://i.loli.net/2019/03/18/5c8fbaefc6f34.jpg" alt="" / > < / figure >
-        # < !-- / wp: image -->
+        content_list = ['< !-- wp:image -->\n',
+                        '< figure class ="wp-block-image" > < img src="%{pic_bed_url}s}" alt="" / > < / figure >\n' % {
+                            pic_bed_url},
+                        '< !-- / wp: image -->\n\n']
 
-
-        content_list = ['<!-- wp:paragraph -->\n',
-                        '<!-- wp:image {"id":%{pic_wp_id}s} -->\n' % {pic_wp_id},
-                        '<figure class="wp-block-image"><img src="https://www.onedaycp.com/wp-content/uploads/2019/03/picture-819x1024.jpg" alt="" class="wp-image-424"/></figure>\n\n']
-
-        blogger_id = tweet['']
-        blogger_info = list(db['Information'].find({"dataset_id": latest_dataset_id, "blogger_id": blogger_id}))[0]
-        print(blogger_info)
-        comments = db['Comments'].find({"dataset_id": latest_dataset_id, "weibo_url": tweet_url})
-        title = tweet['content']
-        content_list = ['<!-- wp:paragraph -->\n', '<p>评论:</p>\n', '<!-- /wp:paragraph -->\n\n']
+        blogger_id = records['_id']
+        print(blogger_id)
+        comments = record['commentMessage']
+        title = record['title']
+        content_list.append(['<!-- wp:paragraph -->\n', '<p>评论:</p>\n', '<!-- /wp:paragraph -->\n\n'])
         for comment in comments:
             content_list.append('<!-- wp:paragraph -->\n')
-            content_list.append('<p>%(nick_name)s: %(content)s</p>\n' % {'nick_name': comment['nick_name'],
-                                                                         'content': comment['content']})
+            content_list.append('<p>%(content)s</p>\n' % {'content': comment})
             content_list.append('<!-- /wp:paragraph -->\n\n')
         content = ''.join(content_list)
         print(content)
         post_tags = []
         categories = []  # 孙笑川
-        # categories.insert(1, blogger_info['nick_name'])
-        print(blogger_info['nick_name'])
-        categories.append(blogger_info['nick_name'])
+        print(author)
+        categories.append(author)
         # categories = mat(categories)
-        previous_post_ids = scrap_info_operation.get_post_ids(weibo_url=tweet_url)
+        previous_post_ids = scrap_info_operation.get_previous_post_ids(this_dataset=latest_dataset_id, title_id=ins_id)
         wordpress_operation.delete_wordpress(post_id_list=previous_post_ids)
         post_id = wordpress_operation.post_wordpress(title, content, 'publish', 'open', post_tags, categories)
-        scrap_info_operation.insert_mapping_record(post_id, latest_dataset_id, tweet_url, blogger_info['nick_name'])
-
+        scrap_info_operation.insert_mapping_record(post_id=post_id, dataset_id=latest_dataset_id, title_id=ins_id,
+                                                   category=author)
         # 假如之前存在多个此微博的postid,则全部删除了然后再插入新的
 
 transfer_to_mysql()
