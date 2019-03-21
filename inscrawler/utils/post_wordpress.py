@@ -3,7 +3,7 @@ import inscrawler.utils.scrap_info_operation as scrap_info_operation
 import inscrawler.utils.mongodb_operation as mongodb_operation
 
 
-def transfer_to_mysql():
+def post():
     # 假如需要异地开发，就把dataset_id换成需要的 '270dd05e-48b7-11e9-b4c9-4c3275997092'
     # latest_dataset_id = scrap_info_operation.get_latest_dataset_id('edcee3000', 'Instagram')
     latest_dataset_id = '270dd05e-48b7-11e9-b4c9-4c3275997092'
@@ -16,18 +16,18 @@ def transfer_to_mysql():
         pic_bed_url = wordpress_operation.post_picture(dataset_id=latest_dataset_id, pic_loacation=pic_loacation,
                                                        pic_ins_id=ins_id, category=author)
 
-
-
         content_list = ['< !-- wp:image -->\n',
-                        '< figure class ="wp-block-image" > < img src="%{pic_bed_url}s}" alt="" / > < / figure >\n' % {
-                            pic_bed_url},
+                        '< figure class ="wp-block-image" > < img src="%(pic_bed_url)s" alt="" / > < / figure >\n' % {
+                            'pic_bed_url': pic_bed_url},
                         '< !-- / wp: image -->\n\n']
 
-        blogger_id = records['_id']
+        blogger_id = record['_id']
         print(blogger_id)
-        comments = record['commentMessage']
+        comments = record['commentMessages']
         title = record['title']
-        content_list.append(['<!-- wp:paragraph -->\n', '<p>评论:</p>\n', '<!-- /wp:paragraph -->\n\n'])
+        content_list.append('<!-- wp:paragraph -->\n')
+        content_list.append('<p>评论:</p>\n')
+        content_list.append('<!-- /wp:paragraph -->\n\n')
         for comment in comments:
             content_list.append('<!-- wp:paragraph -->\n')
             content_list.append('<p>%(content)s</p>\n' % {'content': comment})
@@ -46,7 +46,8 @@ def transfer_to_mysql():
                                                    category=author)
         # 假如之前存在多个此微博的postid,则全部删除了然后再插入新的
 
-transfer_to_mysql()
+
+post()
 
 # items = table.find()
 # content = []

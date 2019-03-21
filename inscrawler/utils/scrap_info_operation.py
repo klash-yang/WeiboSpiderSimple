@@ -76,7 +76,7 @@ def insert_mapping_record(post_id, dataset_id, title_id, category):
     conn = mysql_con()
     cursor = conn.cursor()
     sentence = "INSERT INTO scrapinfo.post_info(id, post_id, dataset_id, title_id, category, create_time) " \
-               "VALUES (UUID(), '%(post_id)s', '%(dataset_id)s', '%(weibo_url)s', '%(category)s', now())" % {
+               "VALUES (UUID(), '%(post_id)s', '%(dataset_id)s', '%(title_id)s', '%(category)s', now())" % {
                    'post_id': post_id, 'dataset_id': dataset_id, 'title_id': title_id,
                    'category': category
                }
@@ -85,13 +85,13 @@ def insert_mapping_record(post_id, dataset_id, title_id, category):
     close_mysql(cursor, conn)
 
 
-def insert_pic_record(pic_ins_id, dataset_id, category, pic_wp_url):
+def insert_pic_record(pic_ins_id, dataset_id, category, pic_url):
     conn = mysql_con()
     cursor = conn.cursor()
-    sentence = "INSERT INTO scrapinfo.post_info(id, pic_wp_id, pic_ins_id, dataset_id, category, pic_wp_url, create_time)  " \
-               "VALUES (UUID(), null, '%(pic_ins_id)s', '%(dataset_id)s', '%(category)s', '', now())" % {
+    sentence = "INSERT INTO scrapinfo.ins_pic_info(id, pic_wp_id, pic_ins_id, dataset_id, category, pic_url, create_time)  " \
+               "VALUES (UUID(), null, '%(pic_ins_id)s', '%(dataset_id)s', '%(category)s', '%(pic_url)s', now())" % {
                    'pic_ins_id': pic_ins_id, 'dataset_id': dataset_id,
-                   'category': category, 'pic_wp_url': pic_wp_url
+                   'category': category, 'pic_url': pic_url
                }
     effect_row = cursor.execute(sentence)
     print('Insert ' + str(effect_row) + ' rows')

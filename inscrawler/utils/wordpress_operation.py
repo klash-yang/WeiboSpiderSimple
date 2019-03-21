@@ -41,6 +41,6 @@ def post_picture(dataset_id, pic_loacation, pic_ins_id, category):
     pic_bed_url = picture_operation.upload_picture(pic_loacation)
 
     scrap_info_operation.insert_pic_record(pic_ins_id=pic_ins_id, dataset_id=dataset_id,
-                                           category=category, pic_wp_url=pic_bed_url)
+                                           category=category, pic_url=pic_bed_url)
     return pic_bed_url
     # print(response)
