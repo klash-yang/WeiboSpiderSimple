@@ -21,4 +21,5 @@ WORDPRESS_ADMIN_NAME = 'poloyc'
 WORDPRESS_ADMIN_PASSWORD = 'Suckerlove5'
 
 # 图床配置
-PHOTO_BED_UPLOAD_URL = 'https://apis.yum6.cn/api/5bd44dc94bcfc?token=f07b711396f9a05bc7129c4507fb65c5'
+# PHOTO_BED_UPLOAD_URL = 'https://apis.yum6.cn/api/5bd44dc94bcfc?token=f07b711396f9a05bc7129c4507fb65c5'
+PHOTO_BED_UPLOAD_URL = 'https://sm.ms/api/upload'

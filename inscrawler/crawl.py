@@ -8,6 +8,7 @@ import inscrawler.utils.mongodb_operation as mongodb_operation
 import uuid
 import re
 import inscrawler.utils.scrap_info_operation as scrap_info_operation
+import sys
 
 
 def downloadImage(imageUrl, imagePath):
@@ -116,8 +117,8 @@ def extractCaption(data):
     return result
 
 
-def runCrawl(limitNum=0, queryList=[], is_all_comments=False, dataset_id=str(uuid.uuid1())):
-    browser = Browser("driver/chromedriver")
+def runCrawl(limitNum=0, queryList=[], is_all_comments=False, dataset_id=str(uuid.uuid1()), driver_dir="driver"):
+    browser = Browser(driver_dir + "/chromedriver")
     db = mongodb_operation.get_mongo_db()
     table = db['ins']
     for query in queryList:
@@ -225,7 +226,14 @@ def main():
 def scrap():
     hasChromeDriver = False
     dataset_id = str(uuid.uuid1())
-    for i in os.listdir("./driver"):
+    if 'win' in str(sys.platform):
+        driver_dir = "./driver/chromedriver_win32"
+    elif 'linux' in str(sys.platform):
+        driver_dir = "./driver/chromedriver_linux64"
+    else:
+        driver_dir = "./driver/chromedriver_mac64"
+
+    for i in os.listdir(driver_dir):
         if "chromedriver" in i:
             hasChromeDriver = True
             break
@@ -241,9 +249,10 @@ def scrap():
         print('Please input query!')
     else:
         queryList = query.replace(" ", "").split(",")
-        runCrawl(limitNum=limitNum, queryList=queryList, is_all_comments=is_all_comments, dataset_id=dataset_id)
+        runCrawl(limitNum=limitNum, queryList=queryList, is_all_comments=is_all_comments, dataset_id=dataset_id,
+                 driver_dir=driver_dir)
 
 
-scrap()
+# scrap()
 
 # main()

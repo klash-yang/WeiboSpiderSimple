@@ -20,8 +20,8 @@ def upload_picture(file_address):
     )
 
     resp = json.loads(r.content)
-    url = resp['data']['url']
+    # url = resp['data']['url']
+    print(resp)
+    # return url
 
-    return url
-
-# upload_picture('../data/pic5.jpg')
+upload_picture('data/edcee3000/Bu-gwyLnJjy/image.jpg')

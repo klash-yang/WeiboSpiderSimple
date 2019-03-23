@@ -5,13 +5,13 @@ import inscrawler.utils.mongodb_operation as mongodb_operation
 
 def post():
     # 假如需要异地开发，就把dataset_id换成需要的 '270dd05e-48b7-11e9-b4c9-4c3275997092'
-    # latest_dataset_id = scrap_info_operation.get_latest_dataset_id('edcee3000', 'Instagram')
-    latest_dataset_id = '270dd05e-48b7-11e9-b4c9-4c3275997092'
+    latest_dataset_id = scrap_info_operation.get_latest_dataset_id('edcee3000', 'Instagram')
+    # latest_dataset_id = '270dd05e-48b7-11e9-b4c9-4c3275997092'
     db = mongodb_operation.get_mongo_db()
     records = db['ins'].find({"dataset_id": latest_dataset_id}).sort("dateTime", -1)
     for record in records:
         ins_id = record['ins_id']
-        pic_loacation = record['pic_location']
+        pic_loacation = './' + record['pic_location']
         author = record['author']
         pic_bed_url = wordpress_operation.post_picture(dataset_id=latest_dataset_id, pic_loacation=pic_loacation,
                                                        pic_ins_id=ins_id, category=author)
@@ -48,29 +48,3 @@ def post():
 
 
 post()
-
-# items = table.find()
-# content = []
-# content.append('yang')
-# content.append('cheng')
-# print(content)
-# for item in items:
-#     # print(item)
-#     content.append(item)
-
-
-# a = 'dasdasdasdasd'
-# salt = crypt.mksalt(crypt.METHOD_SHA512)
-# hash = crypt.crypt("helloworld", salt)
-# print(hash)
-
-
-# {"dataset_id": "6f3d77ba-3910-11e9-bfef-e0d55eb10729"}
-# client = pymongo.MongoClient(host='localhost', port=27017)
-# mydb = client['Sina']
-# mycol = mydb['Tweets']
-# my_query = {"dataset_id": "9ce8aa50-3849-11e9-b056-e0d55eb10729"}
-# # my_query = {"1748526937_GxfZpelkd}
-# result = mycol.find()
-# for item in result:
-#     print(item)
