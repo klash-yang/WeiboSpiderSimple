@@ -4,7 +4,6 @@ pymongo==3.5.1
 Pillow==5.2.0
 lxml==4.2.5
 PyMySQL
-pymongo
 pywin32
 python-wordpress-xmlrpc
 requests==2.20.0
