@@ -38,9 +38,15 @@ def delete_wordpress(post_id_list):
 def post_picture(dataset_id, pic_loacation, pic_ins_id, category):
     # TODO 删除这个图片的逻辑
 
-    pic_bed_url = picture_operation.upload_picture(pic_loacation)
+    upload_result = picture_operation.upload_picture(pic_loacation)
+
+    pic_bed_url = upload_result[0]
+    origin_url = upload_result[1]
+    delete_url = upload_result[2]
 
     scrap_info_operation.insert_pic_record(pic_ins_id=pic_ins_id, dataset_id=dataset_id,
-                                           category=category, pic_url=pic_bed_url)
+                                           category=category, pic_url=pic_bed_url, delete_url=delete_url,
+                                           origin_url=origin_url)
+
     return pic_bed_url
-    # print(response)
+# print(response)
