@@ -1,5 +1,11 @@
-import time
 import os
+import sys
+
+curPath = os.path.abspath(os.path.dirname(__file__))
+rootPath = os.path.split(curPath)[0]
+sys.path.append(rootPath)
+
+import time
 import requests
 from inscrawler.utils.browser import Browser
 from docopt import docopt
@@ -8,7 +14,7 @@ import inscrawler.utils.mongodb_operation as mongodb_operation
 import uuid
 import re
 import inscrawler.utils.scrap_info_operation as scrap_info_operation
-import sys
+from inscrawler.settings import SCRAP_NUM, SCRAP_QUERY
 
 
 def downloadImage(imageUrl, imagePath):
@@ -241,8 +247,8 @@ def scrap():
         print("ERROR! NO 'chromedriver' Found")
         print("Please install chromedriver at https://sites.google.com/a/chromium.org/chromedriver/")
         return
-    limitNum = int(20)
-    query = 'edcee3000'
+    limitNum = int(SCRAP_NUM)
+    query = SCRAP_QUERY
     is_all_comments = True
     scrap_info_operation.insert_dataset(dataset_id=dataset_id, category=query, project='Instagram')
     if not query:
@@ -251,7 +257,6 @@ def scrap():
         queryList = query.replace(" ", "").split(",")
         runCrawl(limitNum=limitNum, queryList=queryList, is_all_comments=is_all_comments, dataset_id=dataset_id,
                  driver_dir=driver_dir)
-
 
 # scrap()
 

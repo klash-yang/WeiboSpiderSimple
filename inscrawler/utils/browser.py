@@ -6,17 +6,21 @@ from selenium.common.exceptions import TimeoutException
 import os
 import time
 
+
 class Browser:
-    
+
     def __init__(self, driverPath):
-        self.driver = webdriver.Chrome(driverPath)
+        options = webdriver.ChromeOptions()
+        options.add_argument('--headless')
+        options.add_argument('--no-sandbox')
+        self.driver = webdriver.Chrome(executable_path=driverPath, chrome_options=options)
         self.driver.implicitly_wait(3)
-        self.waitTime = 1 # wait 1 second for loading
+        self.waitTime = 1  # wait 1 second for loading
         self.urlList = []
 
-    def goToPage(self,url):
+    def goToPage(self, url):
         self.driver.get(url)
-    
+
     def getPageSource(self):
         return self.driver.page_source
 
@@ -24,13 +28,13 @@ class Browser:
         try:
             # loading all comments.
             # if all comments is loaded, exception will raise on click function
-            while(True):
+            while (True):
                 expandScript = "return (a = document.getElementsByClassName('Z4IfV')[0].click())"
                 self.driver.execute_script(expandScript)
                 time.sleep(0.1)
         except:
             pass
-    
+
     def getPageSourceCond(self, element):
         delay = 30
         myElem = WebDriverWait(self.driver, delay).until(EC.presence_of_element_located((By.CLASS_NAME, element)))
@@ -44,7 +48,7 @@ class Browser:
 
     def clearLink(self):
         self.urlList = []
-        
+
     def scrollPageToBottomUntilEnd(self, mFunc, limitNum):
         dup = 0
         while True:
@@ -65,14 +69,14 @@ class Browser:
             # retry three more time 
             if dup > 2:
                 break
-        
+
     def collectDpageUrl(self, data):
         r = data.split('href="/p/')[1:]
         for i in r:
-            dPageLink = "https://www.instagram.com/p/"+i.split('"')[0]+"?hl=en"
+            dPageLink = "https://www.instagram.com/p/" + i.split('"')[0] + "?hl=en"
             if dPageLink not in self.urlList:
                 self.urlList.append(dPageLink)
-            
+
     def __del__(self):
         try:
             self.driver.quit()
