@@ -73,9 +73,17 @@ def extractComments(data, lang="en"):
             result = data[2]
         else:
             result = data[3][:-1]
+
+        if 'agoLog in to like or comment.SearchLog In to InstagramLog' in result:
+            result = re.findall(
+                r"(.*)agoLog in to like or comment.SearchLog In to InstagramLog in to see photos and videos from friends and discover other",
+                result)[0]
+            result = re.findall(r"(.*)\d+ day", result)[0]
+
     except Exception as e:
         pass
         result = ""
+
     return result
 
 
@@ -258,6 +266,7 @@ def scrap():
         runCrawl(limitNum=limitNum, queryList=queryList, is_all_comments=is_all_comments, dataset_id=dataset_id,
                  driver_dir=driver_dir)
 
-# scrap()
+
+scrap()
 
 # main()

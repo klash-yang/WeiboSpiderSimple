@@ -28,3 +28,5 @@ SCRAP_NUM = 2
 
 # 爬取目标账号
 SCRAP_QUERY = 'edcee3000'
+# SCRAP_QUERY = 'temushade'
+# SCRAP_QUERY = 'hanae_0227'

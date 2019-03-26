@@ -11,8 +11,8 @@ class Browser:
 
     def __init__(self, driverPath):
         options = webdriver.ChromeOptions()
-        options.add_argument('--headless')
-        options.add_argument('--no-sandbox')
+        # options.add_argument('--headless')
+        # options.add_argument('--no-sandbox')
         self.driver = webdriver.Chrome(executable_path=driverPath, chrome_options=options)
         self.driver.implicitly_wait(3)
         self.waitTime = 1  # wait 1 second for loading
