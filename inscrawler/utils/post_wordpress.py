@@ -16,10 +16,10 @@ def post():
         pic_bed_url = wordpress_operation.post_picture(dataset_id=latest_dataset_id, pic_loacation=pic_loacation,
                                                        pic_ins_id=ins_id, category=author)
 
-        content_list = ['< !-- wp:image -->\n',
-                        '< figure class ="wp-block-image" > < img src="%(pic_bed_url)s" alt="" / > < / figure >\n' % {
+        content_list = ['<!-- wp:image -->\n',
+                        '<figure class="wp-block-image"><img src="%(pic_bed_url)s" alt=""/></figure>\n' % {
                             'pic_bed_url': pic_bed_url},
-                        '< !-- / wp: image -->\n\n']
+                        '<!-- /wp:image -->\n\n']
 
         blogger_id = record['_id']
         print(blogger_id)
@@ -45,6 +45,5 @@ def post():
         scrap_info_operation.insert_mapping_record(post_id=post_id, dataset_id=latest_dataset_id, title_id=ins_id,
                                                    category=author)
         # 假如之前存在多个此微博的postid,则全部删除了然后再插入新的
-
 
 # post()
