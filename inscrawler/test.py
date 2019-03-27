@@ -23,4 +23,4 @@
 
 from inscrawler.utils.wordpress_operation import delete_wordpress
 
-delete_wordpress([5])
+delete_wordpress([5, 6])

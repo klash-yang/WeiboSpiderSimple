@@ -24,16 +24,14 @@ def post_wordpress(title, content, post_status, comment_status, post_tags, categ
     }
     return wp.call(NewPost(post))
 
-
+# TODO 测试删除能不能彻底,不能的话直接连数据库删除
 def delete_wordpress(post_id_list):
     wp = get_wordpress_client()
     total_count = 0
     for id in post_id_list:
-        try:
-            wp.call(DeletePost(id))
-            total_count += 1
-        except OSError:
-            pass
+        wp.call(DeletePost(id))
+        total_count += 1
+        print('*************')
 
     return total_count
 
