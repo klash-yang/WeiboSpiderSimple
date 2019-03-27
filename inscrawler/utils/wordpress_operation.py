@@ -29,9 +29,12 @@ def delete_wordpress(post_id_list):
     wp = get_wordpress_client()
     total_count = 0
     for id in post_id_list:
-        id = tuple(id)[0]
-        wp.call(DeletePost(id))
-        total_count += 1
+        try:
+            wp.call(DeletePost(id))
+            total_count += 1
+        except OSError:
+            pass
+
     return total_count
 
 

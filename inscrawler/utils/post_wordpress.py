@@ -5,8 +5,8 @@ import inscrawler.utils.mongodb_operation as mongodb_operation
 
 def post():
     # 假如需要异地开发，就把dataset_id换成需要的 '270dd05e-48b7-11e9-b4c9-4c3275997092'
-    latest_dataset_id = scrap_info_operation.get_latest_dataset_id('edcee3000', 'Instagram')
-    # latest_dataset_id = '270dd05e-48b7-11e9-b4c9-4c3275997092'
+    # latest_dataset_id = scrap_info_operation.get_latest_dataset_id('edcee3000', 'Instagram')
+    latest_dataset_id = 'b5538933-4f9c-11e9-9365-1245e3aa661c'
     db = mongodb_operation.get_mongo_db()
     records = db['ins'].find({"dataset_id": latest_dataset_id}).sort("dateTime", -1)
     for record in records:
@@ -46,4 +46,5 @@ def post():
                                                    category=author)
         # 假如之前存在多个此微博的postid,则全部删除了然后再插入新的
 
-# post()
+
+post()
