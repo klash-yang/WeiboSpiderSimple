@@ -24,7 +24,7 @@ WORDPRESS_ADMIN_PASSWORD = 'Suckerlove5'
 PHOTO_BED_UPLOAD_URL = 'https://sm.ms/api/upload'
 
 # 一次爬取的数量
-SCRAP_NUM = 2
+SCRAP_NUM = 20
 
 # 爬取目标账号
 SCRAP_QUERY = 'edcee3000'
