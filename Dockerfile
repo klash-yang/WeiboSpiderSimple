@@ -1,5 +1,15 @@
 #基于的基础镜像
-FROM python:3.6-slim
+FROM ubuntu:16.04
+
+#维护者
+MAINTAINER Dadiao
+
+# 安装Python
+RUN apt-get update && \
+      apt-get install -y python \
+                       python-dev \
+                       python-pip && \
+      rm -rf /var/lib/apt/lists/*
 
 #代码添加到code文件夹
 ADD ./inscrawler /inscrawler
