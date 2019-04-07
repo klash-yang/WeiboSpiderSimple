@@ -6,9 +6,7 @@ MAINTAINER Dadiao
 
 # 安装Python
 RUN apt-get update && \
-      apt-get install -y python \
-                       python-dev \
-                       python-pip && \
+      apt-get install -y python3 \
       rm -rf /var/lib/apt/lists/*
 
 #代码添加到code文件夹
@@ -18,6 +16,6 @@ ADD ./inscrawler /inscrawler
 WORKDIR /inscrawler
 
 # 安装支持
-RUN pip install -r requirements.txt
+RUN pip3 install -r requirements.txt
 
-CMD ["python", "/inscrawler/run_once.py"]
+CMD ["python3", "/inscrawler/run_once.py"]
