@@ -7,6 +7,8 @@ MAINTAINER Dadiao
 # 安装Python
 RUN apt-get update && \
       apt-get install -y python3 \
+                       python-dev \
+                       python-pip && \
       rm -rf /var/lib/apt/lists/*
 
 #代码添加到code文件夹
