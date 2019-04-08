@@ -243,6 +243,7 @@ def scrap():
     if 'win' in str(sys.platform):
         driver_dir = "./driver/chromedriver_win32"
     elif 'linux' in str(sys.platform):
+        # driver_dir = "./driver/chromedriver_linux64"
         driver_dir = "./driver/chromedriver_linux64"
     else:
         driver_dir = "./driver/chromedriver_mac64"

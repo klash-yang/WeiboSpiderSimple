@@ -1,15 +1,10 @@
 #基于的基础镜像
-FROM ubuntu:16.04
+FROM python:3.7
 
 #维护者
 MAINTAINER Dadiao
 
-# 安装Python
-RUN apt-get update && \
-      apt-get install -y python3 \
-                       python-dev \
-                       python-pip && \
-      rm -rf /var/lib/apt/lists/*
+RUN chmod -R 777 ./inscrawler
 
 #代码添加到code文件夹
 ADD ./inscrawler /inscrawler
@@ -18,6 +13,6 @@ ADD ./inscrawler /inscrawler
 WORKDIR /inscrawler
 
 # 安装支持
-RUN pip3 install -r requirements.txt
+RUN pip install -r requirements.txt
 
-CMD ["python3", "/inscrawler/run_once.py"]
+CMD ["python", "/inscrawler/run_once.py"]
