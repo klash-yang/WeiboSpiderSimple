@@ -4,16 +4,16 @@ LOCAL_MONGO_PORT = 27017
 DB_NAME = 'Instagram'
 
 # WordPress Mysql 配置
-WP_MYSQL_HOST = '132.232.113.103'
-WP_MYSQL_USER = 'chouxiang'
-WP_MYSQL_PWD = 'wMJ4Ep8WHf'
-WP_MYSQL_DB = 'chouxiang'
+WP_MYSQL_HOST = ''
+WP_MYSQL_USER = ''
+WP_MYSQL_PWD = ''
+WP_MYSQL_DB = ''
 
 # Scrap Info Mysql 配置
-SCRAP_MYSQL_HOST = '132.232.113.103'
-SCRAP_MYSQL_USER = 'scrapinfo'
-SCRAP_MYSQL_PWD = 'KEBjhAPk2bZtaAG3'
-SCRAP_MYSQL_DB = 'scrapinfo'
+SCRAP_MYSQL_HOST = ''
+SCRAP_MYSQL_USER = ''
+SCRAP_MYSQL_PWD = ''
+SCRAP_MYSQL_DB = ''
 
 # Wordpress 配置
 WORDPRESS_ADDRESS = 'https://www.onedaycp.com/'
